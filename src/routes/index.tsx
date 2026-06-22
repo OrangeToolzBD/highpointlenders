@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-const siteLogoUrl = "/austincapital-logo.png";
+const siteLogoUrl = "/austlogo.png";
 const heroVideoUrl = "/austin-bg-video.mp4";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -422,13 +422,13 @@ export function Header() {
                     <div className="text-sm">
                       <div className="font-semibold">Not sure which loan fits?</div>
                       <div className="text-muted-foreground">
-                        Get matched in 60 seconds, soft credit pull only.
+                        Talk to an Austin banker — no obligation.
                       </div>
                     </div>
                     <Button asChild size="sm" className="bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)]">
-                      <Link to="/" hash="apply">
-                        Get Pre-Qualified <ArrowRight className="h-4 w-4" />
-                      </Link>
+                      <a href={SITE_CONFIG.phoneHref}>
+                        <PhoneCall className="h-4 w-4" /> Call {SITE_CONFIG.phone}
+                      </a>
                     </Button>
                   </div>
                 </div>
@@ -515,18 +515,14 @@ export function Header() {
         </NavigationMenu>
 
         <div className="flex items-center gap-2">
-          <a
-            href={SITE_CONFIG.phoneHref}
-            className="hidden items-center gap-2 text-sm font-medium text-foreground hover:text-[color:var(--brand-blue)] xl:inline-flex"
-          >
-            <PhoneCall className="h-4 w-4" /> {SITE_CONFIG.phone}
-          </a>
           <Button
             size="sm"
             className="hidden bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)] shadow-[var(--shadow-elegant)] hover:opacity-95 sm:inline-flex"
             asChild
           >
-            <Link to="/" hash="apply">Get Pre-Qualified</Link>
+            <a href={SITE_CONFIG.phoneHref}>
+              <PhoneCall className="h-4 w-4" /> Call {SITE_CONFIG.phone}
+            </a>
           </Button>
 
           {/* Mobile menu */}
@@ -661,12 +657,11 @@ export function Header() {
                 </Accordion>
 
                 <div className="mt-4 space-y-2 border-t border-border px-2 pt-4">
-                  <a href={SITE_CONFIG.phoneHref} className="flex items-center gap-2 text-sm font-medium">
-                    <PhoneCall className="h-4 w-4 text-[color:var(--brand-blue)]" /> {SITE_CONFIG.phone}
-                  </a>
                   <SheetClose asChild>
                     <Button asChild className="w-full bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)]">
-                      <Link to="/" hash="apply">Get Pre-Qualified</Link>
+                      <a href={SITE_CONFIG.phoneHref}>
+                        <PhoneCall className="h-4 w-4" /> Call {SITE_CONFIG.phone}
+                      </a>
                     </Button>
                   </SheetClose>
                 </div>
@@ -1501,7 +1496,7 @@ function LoanTypes() {
               </div>
               <p className="mt-3 text-sm leading-relaxed text-white/75">{desc}</p>
               <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--brand-gold)]">
-                Get pre-qualified
+                Apply now
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
