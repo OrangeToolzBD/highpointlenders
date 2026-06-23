@@ -91,28 +91,28 @@ const CITY_STATE = `${CITY}, TX`;
 
 const HOME_FAQS = [
   {
-    q: `How quickly can I get funded in ${CITY}?`,
-    a: `Many of our lenders can fund qualified ${CITY} businesses within 24-72 hours of approval. Same-day business loans are available for select products like merchant cash advances and short-term loans.`,
+    q: `What loan products can ${CITY} businesses apply for?`,
+    a: `Our lender network covers SBA 7(a) and 504 loans, business lines of credit, equipment financing, working capital advances, commercial real estate and merchant cash advances - sized for ${CITY} operators from solo founders to growth-stage companies.`,
   },
   {
-    q: "Will checking options affect my credit score?",
-    a: "No. We use a soft credit pull to pre-qualify you, which does not affect your personal or business credit score.",
+    q: "How long does approval take?",
+    a: `Most qualified ${CITY} files see an initial decision inside 48 hours, with funding wired in 2-5 business days. Same-day funding is available for short-term loans and merchant cash advances.`,
   },
   {
-    q: "What credit score is required?",
-    a: "Most of our lenders work with scores starting at 550 FICO. SBA loans and the best lines of credit typically require 650+.",
+    q: "Does pre-qualifying impact my credit?",
+    a: "No. We run a soft inquiry to match you with the right lenders. Your FICO is untouched until you formally accept an offer and the chosen lender runs a hard pull.",
   },
   {
-    q: "Can startups qualify?",
-    a: "Yes. We work with startup business lenders that fund companies as young as 3 months, and SBA startup loan programs for newer ventures.",
+    q: "Is there a minimum credit score requirement?",
+    a: "Most of our partner lenders work with scores starting at 600 FICO. SBA programs typically expect 650+, while revenue-based products may accept lower scores when cash flow is strong.",
   },
   {
-    q: "What documents are needed?",
-    a: "Typically 3-6 months of business bank statements, basic business details and a valid ID. SBA loans may require tax returns and financials.",
+    q: "What documents do I need to apply?",
+    a: "Usually 4-6 months of business bank statements, a brief business profile and a valid ID. SBA and CRE deals also call for tax returns, P&Ls and a debt schedule.",
   },
   {
-    q: "How much can I borrow?",
-    a: "Funding ranges from $5,000 working capital advances up to $5,000,000 SBA and commercial real estate loans, depending on revenue and use of funds.",
+    q: `Are early-stage ${CITY} startups eligible?`,
+    a: `Yes. We work with lenders that fund ${CITY} companies with 12 months or more of operating history, plus SBA microloan and startup programs for newer ventures.`,
   },
 ] as const;
 
@@ -1125,14 +1125,14 @@ function WhyUs() {
       icon: Clock,
       title: "Fast Decisions",
       desc: `Pre-qualify in minutes. Same-day funding available for qualified ${CITY} files.`,
-      stat: "< 24 hrs",
+      stat: "< 48 hrs",
       statLabel: "Average funding time",
     },
     {
       icon: Banknote,
       title: "Flexible Funding",
-      desc: "From $5,000 working capital to $5,000,000 SBA acquisitions - sized to the deal.",
-      stat: "$5K-$5M",
+      desc: "From $10,000 working capital to $3,000,000 SBA acquisitions - sized to the deal.",
+      stat: "$10K-$3M",
       statLabel: "Funding range",
     },
     {
@@ -1404,15 +1404,15 @@ function CityHubCTA() {
               <div className="text-xs uppercase tracking-wider text-white/70">Inside the hub</div>
               <div className="mt-4 grid grid-cols-3 gap-3 text-center">
                 <div className="rounded-xl bg-white/10 p-2.5 sm:p-4">
-                  <div className="text-base font-bold sm:text-2xl">10</div>
+                  <div className="text-base font-bold sm:text-2xl">12</div>
                   <div className="mt-1 whitespace-nowrap text-[9px] uppercase tracking-wide text-white/70 sm:text-[11px] sm:tracking-wider">Suburbs</div>
                 </div>
                 <div className="rounded-xl bg-white/10 p-2.5 sm:p-4">
-                  <div className="text-base font-bold sm:text-2xl">38</div>
+                  <div className="text-base font-bold sm:text-2xl">45</div>
                   <div className="mt-1 whitespace-nowrap text-[9px] uppercase tracking-wide text-white/70 sm:text-[11px] sm:tracking-wider">Programs</div>
                 </div>
                 <div className="rounded-xl bg-white/10 p-2.5 sm:p-4">
-                  <div className="text-base font-bold sm:text-2xl">80+</div>
+                  <div className="text-base font-bold sm:text-2xl">95+</div>
                   <div className="mt-1 whitespace-nowrap text-[9px] uppercase tracking-wide text-white/70 sm:text-[11px] sm:tracking-wider">Local Pages</div>
                 </div>
               </div>
@@ -1977,10 +1977,10 @@ function SuccessStories() {
 /* ---------------- City Data ---------------- */
 function CityData() {
   const stats = [
-    { k: "$5K-$5M", v: "Funding range" },
-    { k: "24 hrs", v: "Fastest funding" },
-    { k: "550+", v: "Minimum FICO" },
-    { k: "6 mo+", v: "Time in business" },
+    { k: "$10K-$3M", v: "Funding range" },
+    { k: "48 hrs", v: "Fastest funding" },
+    { k: "600+", v: "Minimum FICO" },
+    { k: "12 mo+", v: "Time in business" },
   ];
   return (
     <section className="relative overflow-hidden bg-secondary/40 py-10 sm:py-20">
