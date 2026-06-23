@@ -83,7 +83,7 @@ export const SITE_CONFIG = {
   featuredStat: {
     value: "3.1 million",
     claim: "Texas small businesses powering the second-largest state economy in the U.S.",
-    sourceName: "SBA Office of Advocacy — Texas Small Business Profile",
+    sourceName: "SBA Office of Advocacy - Texas Small Business Profile",
     sourceUrl: "https://advocacy.sba.gov/",
   },
 

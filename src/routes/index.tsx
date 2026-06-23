@@ -141,7 +141,6 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <main>
-        <div aria-hidden className="h-16" />
         <Hero />
         <TrustRow />
         <WhyUs />
@@ -387,7 +386,8 @@ function MegaItem({
 
 export function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white/90 text-foreground backdrop-blur supports-[backdrop-filter]:bg-white/75">
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white/90 text-foreground backdrop-blur supports-[backdrop-filter]:bg-white/75">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:px-6">
         <a href="/" className="flex items-center gap-2 font-semibold">
           <img src={siteLogoUrl} alt={SITE_CONFIG.name} className="h-9 w-auto" />
@@ -403,8 +403,8 @@ export function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Loan Products</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="light w-[900px] bg-popover p-6 text-popover-foreground">
-                  <div className="grid grid-cols-3 gap-6">
+                <div className="light w-[min(900px,calc(100vw-2rem))] overflow-x-auto bg-popover p-6 text-popover-foreground">
+                  <div className="grid grid-cols-3 gap-6 min-w-[852px]">
                     {LOAN_GROUPS.map((g) => (
                       <div key={g.heading}>
                         <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-[color:var(--brand-blue)]">
@@ -422,7 +422,7 @@ export function Header() {
                     <div className="text-sm">
                       <div className="font-semibold">Not sure which loan fits?</div>
                       <div className="text-muted-foreground">
-                        Talk to an Austin banker — no obligation.
+                        Talk to an Austin banker - no obligation.
                       </div>
                     </div>
                     <Button asChild size="sm" className="bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)]">
@@ -438,8 +438,8 @@ export function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Industries</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="light w-[1100px] bg-popover p-6 text-popover-foreground">
-                  <div className="grid grid-cols-4 gap-6">
+                <div className="light w-[min(1100px,calc(100vw-2rem))] overflow-x-auto bg-popover p-6 text-popover-foreground">
+                  <div className="grid grid-cols-4 gap-6 min-w-[1052px]">
                     {INDUSTRY_GROUPS.map((g) => (
                       <div key={g.heading}>
                         <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-[color:var(--brand-blue)]">
@@ -460,7 +460,7 @@ export function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Service Areas</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="light w-[760px] bg-popover p-6 text-popover-foreground">
+                <div className="light w-[min(760px,calc(100vw-2rem))] overflow-x-auto bg-popover p-6 text-popover-foreground">
                   <div className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
                     <MapPin className="h-4 w-4 text-[color:var(--brand-blue)]" />
                     Funding businesses across the greater {CITY_STATE} metro
@@ -496,7 +496,7 @@ export function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Resources</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="light w-[520px] bg-popover p-4 text-popover-foreground">
+                <div className="light w-[min(520px,calc(100vw-2rem))] overflow-x-auto bg-popover p-4 text-popover-foreground">
                   <div className="grid gap-1">
                     <MegaItem icon={BookOpen} label="How It Works" desc="Our 4-step funding process" homeHash="how" />
                     <MegaItem icon={Star} label="Success Stories" desc="Real Austin businesses we funded" homeHash="stories" />
@@ -670,7 +670,9 @@ export function Header() {
           </Sheet>
         </div>
       </div>
-    </header>
+      </header>
+      <div aria-hidden className="h-16" />
+    </>
   );
 }
 
@@ -705,24 +707,18 @@ function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-6 py-10 md:py-28">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--brand-gold)]/50 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--brand-gold)] backdrop-blur">
-            <DiamondMark className="h-2.5 w-2.5" /> Downtown · Austin, TX
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.15em] text-white/80 backdrop-blur">
-            Member of Texas's lender network
-          </span>
         </div>
 
         <h1 className="mt-6 text-4xl font-bold leading-[1.02] tracking-tight md:text-6xl lg:text-[5.5rem]">
-          Business Loans in{" "}
+          Business Loans, Built for{" "}
           <span
             className="bg-clip-text text-transparent"
             style={{ backgroundImage: "linear-gradient(90deg, oklch(0.85 0.13 85), oklch(0.78 0.13 85), oklch(0.72 0.17 30))" }}
           >
-            Austin
+            Austin Operators
           </span>
           <span className="block text-[color:var(--brand-gold)]/80 text-sm font-medium tracking-[0.4em] uppercase mt-3 md:text-base">
-            est. on Congress Avenue
+            SBA · Working Capital · Equipment · CRE
           </span>
         </h1>
 
@@ -794,7 +790,7 @@ function Hero() {
 
 /** Small Lone Star ornament used inline in dividers and uppercase chip text.
  *  Kept under the original `DiamondMark` name so every call site still resolves
- *  without churn — the visual is now a five-point star, the unmistakable Texas
+ *  without churn - the visual is now a five-point star, the unmistakable Texas
  *  stamp. */
 function DiamondMark({ className = "" }: { className?: string }) {
   // 5-point star inside a 10x10 viewBox, centered at (5, 5).
@@ -817,7 +813,7 @@ function DiamondMark({ className = "" }: { className?: string }) {
 }
 
 
-/* ---------------- Decorative SVG shapes — Texas star + Hill Country motifs ---------------- */
+/* ---------------- Decorative SVG shapes - Texas star + Hill Country motifs ---------------- */
 
 /**
  * OceanWaves → Art Deco horizon arches.
@@ -987,7 +983,7 @@ function DotGrid({
 
 /**
  * BlobShape → Stylized monstera/banana leaf.
- * Stylized longhorn silhouette, slightly off-axis — a Texas botanical/livestock accent for hero corners
+ * Stylized longhorn silhouette, slightly off-axis - a Texas botanical/livestock accent for hero corners
  * and background flourishes.
  */
 function BlobShape({
@@ -1135,7 +1131,7 @@ function WhyUs() {
     {
       icon: Banknote,
       title: "Flexible Funding",
-      desc: "From $5,000 working capital to $5,000,000 SBA acquisitions — sized to the deal.",
+      desc: "From $5,000 working capital to $5,000,000 SBA acquisitions - sized to the deal.",
       stat: "$5K-$5M",
       statLabel: "Funding range",
     },
@@ -1156,7 +1152,7 @@ function WhyUs() {
     {
       icon: Users,
       title: "Local Expertise",
-      desc: `Downtown, East Austin, Westlake, Domain — Central Texas underwriting that knows each submarket.`,
+      desc: `Downtown, East Austin, Westlake, Domain - Central Texas underwriting that knows each submarket.`,
       stat: "75+",
       statLabel: "Lending partners",
     },
@@ -1188,7 +1184,7 @@ function WhyUs() {
             </h2>
           </div>
           <p className="text-base text-muted-foreground md:text-lg">
-            Built for {CITY_STATE} businesses — fast decisions, transparent terms,
+            Built for {CITY_STATE} businesses - fast decisions, transparent terms,
             and a banker who knows the difference between a Domain deal and a
             Round Rock deal.
           </p>
@@ -1274,7 +1270,7 @@ function CityIntro() {
     <section className="relative overflow-hidden bg-secondary/40 py-10 sm:py-20">
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-12 md:grid-cols-[1fr_auto_1fr] md:items-start">
-          {/* Left rail — pill stack */}
+          {/* Left rail - pill stack */}
           <aside className="hidden md:block">
             <div className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[color:var(--brand-gold)]">
               Common Uses
@@ -1437,7 +1433,7 @@ function CityHubCTA() {
 /* ---------------- Loan Types ---------------- */
 function LoanTypes() {
   const loans = [
-    { icon: FileText, title: "SBA Loans", tagline: "From 8.5% APR", desc: "SBA 7(a) and 504 — the lowest rates and longest terms available to Austin small businesses.", popular: true },
+    { icon: FileText, title: "SBA Loans", tagline: "From 8.5% APR", desc: "SBA 7(a) and 504 - the lowest rates and longest terms available to Austin small businesses.", popular: true },
     { icon: LineChart, title: "Working Capital Loans", tagline: "Funded in 24 hrs", desc: "Cover payroll, inventory and seasonal gaps with capital sized to your real cash cycle.", popular: true },
     { icon: CreditCard, title: "Business Line of Credit", tagline: "From 9.9% APR", desc: "Revolving capital you draw when you need it. Only pay interest on what you use.", popular: false },
     { icon: Wrench, title: "Equipment Financing", tagline: "From 6.99%", desc: "Equipment serves as collateral. Easy approvals for trucking, construction and medical.", popular: false },
@@ -1543,14 +1539,14 @@ function HowItWorks() {
     { title: "Complete Application", desc: "Tell us about your business in 60 seconds. Soft pull only.", icon: FileText },
     { title: "Get Matched",          desc: "We package your file and shop 75+ lenders for you.",          icon: Users },
     { title: "Compare Offers",       desc: "Review rates, terms and monthly payments side by side.",     icon: LineChart },
-    { title: "Receive Funding",      desc: "Sign and get funded — often in as little as 24 hours.",       icon: HandCoins },
+    { title: "Receive Funding",      desc: "Sign and get funded - often in as little as 24 hours.",       icon: HandCoins },
   ];
   return (
     <section id="how" className="relative overflow-hidden bg-[color:var(--primary)] py-20 text-white md:py-28">
       <SunShape className="pointer-events-none absolute -right-40 -bottom-32 h-80 w-80 text-[color:var(--brand-gold)] opacity-25" />
 
       <div className="relative mx-auto max-w-7xl px-6">
-        {/* Header — left aligned */}
+        {/* Header - left aligned */}
         <div className="max-w-2xl">
           <div className="text-xs font-semibold uppercase tracking-[0.32em] text-[color:var(--brand-gold)]">
             The Process
@@ -1631,7 +1627,7 @@ function Industries() {
               Industries we fund in {CITY}
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground md:text-lg">
-              Specialty programs for the sectors that drive Central Texas — built by bankers who know each one cold.
+              Specialty programs for the sectors that drive Central Texas - built by bankers who know each one cold.
             </p>
           </div>
           <Button
@@ -1647,7 +1643,7 @@ function Industries() {
 
         {/* Bento layout: 2 featured + 8 compact */}
         <div className="mt-12 grid gap-4 md:grid-cols-4 md:grid-rows-2">
-          {/* Featured tile 1 — large */}
+          {/* Featured tile 1 - large */}
           <Link
             to="/industry/$slug"
             params={{ slug: feat1.slug }}
@@ -1674,7 +1670,7 @@ function Industries() {
             </span>
           </Link>
 
-          {/* Featured tile 2 — wide */}
+          {/* Featured tile 2 - wide */}
           <Link
             to="/industry/$slug"
             params={{ slug: feat2.slug }}
@@ -1772,7 +1768,7 @@ function Calculator() {
       </div>
 
       <div className="relative mx-auto mt-14 grid min-w-0 max-w-6xl gap-8 px-4 sm:px-6 md:grid-cols-[1.1fr_1fr]">
-        {/* Sliders panel — deco frame */}
+        {/* Sliders panel - deco frame */}
         <div className="relative overflow-hidden rounded-3xl border border-[color:var(--brand-gold)]/40 bg-card p-6 shadow-[var(--shadow-elegant)] sm:p-8">
           {/* Frame pinstripes */}
           <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[color:var(--brand-gold)] to-transparent" />
@@ -1817,7 +1813,7 @@ function Calculator() {
           </div>
         </div>
 
-        {/* Result panel — Art Deco poster */}
+        {/* Result panel - Art Deco poster */}
         <div className="relative overflow-hidden rounded-3xl border-2 border-[color:var(--brand-gold)] bg-[color:var(--primary)] p-6 text-white shadow-[var(--shadow-glow)] sm:p-8">
           {/* Sunburst behind the headline number */}
           <SunShape className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 text-[color:var(--brand-gold)] opacity-40" />
@@ -2204,15 +2200,36 @@ export function Footer() {
         </div>
         <FooterCol
           title="Loan Products"
-          links={["SBA Loans", "Business Line of Credit", "Equipment Financing", "Working Capital", "Merchant Cash Advance", "Invoice Factoring"]}
+          links={[
+            { label: "SBA Loans", pillar: "sba-loans" },
+            { label: "Business Line of Credit", pillar: "business-line-of-credit" },
+            { label: "Equipment Financing", pillar: "equipment-financing" },
+            { label: "Working Capital Loans", pillar: "working-capital-loans" },
+            { label: "Merchant Cash Advance", pillar: "merchant-cash-advance" },
+            { label: "Invoice Factoring", pillar: "invoice-factoring" },
+          ]}
         />
         <FooterCol
           title="Industries"
-          links={["Construction", "Healthcare", "Restaurants", "Transportation", "Manufacturing", "E-Commerce"]}
+          links={[
+            { label: "Construction", industry: "construction" },
+            { label: "Healthcare", industry: "healthcare" },
+            { label: "Restaurants", industry: "restaurants" },
+            { label: "Transportation", industry: "transportation" },
+            { label: "Manufacturing", industry: "manufacturing" },
+            { label: "E-Commerce", industry: "e-commerce" },
+          ]}
         />
         <FooterCol
           title="Company"
-          links={["About", "Contact", "Locations", "Blog", "Privacy Policy", "Terms"]}
+          links={[
+            { label: "Apply Now", to: "/apply-now" },
+            { label: "Contact", to: "/contact" },
+            { label: "Service Areas", to: "/austin" },
+            { label: "How It Works", to: "/", hash: "how" },
+            { label: "Success Stories", to: "/", hash: "stories" },
+            { label: "FAQs", to: "/", hash: "faq" },
+          ]}
         />
       </div>
       <div className="border-t border-border">
@@ -2247,14 +2264,32 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, links }: Readonly<{ title: string; links: string[] }>) {
+type FooterLink =
+  | { label: string; pillar: string }
+  | { label: string; industry: string }
+  | { label: string; to: "/" | "/apply-now" | "/contact" | "/austin"; hash?: string };
+
+function FooterCol({ title, links }: Readonly<{ title: string; links: FooterLink[] }>) {
+  const linkClass = "hover:text-foreground text-left";
   return (
     <div>
       <h4 className="text-sm font-semibold">{title}</h4>
       <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
         {links.map((l) => (
-          <li key={l}>
-            <button type="button" className="hover:text-foreground text-left">{l}</button>
+          <li key={l.label}>
+            {"pillar" in l ? (
+              <Link to="/pillar/$slug" params={{ slug: l.pillar }} className={linkClass}>
+                {l.label}
+              </Link>
+            ) : "industry" in l ? (
+              <Link to="/industry/$slug" params={{ slug: l.industry }} className={linkClass}>
+                {l.label}
+              </Link>
+            ) : (
+              <Link to={l.to} hash={l.hash} className={linkClass}>
+                {l.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

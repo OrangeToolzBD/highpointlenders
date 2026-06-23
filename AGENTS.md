@@ -1,8 +1,8 @@
 # Instructions for AI builders (Lovable, Claude, etc.)
 
-This project is Austin Capital — an Austin, TX business-lending marketplace site. It was cloned from a Miami precedent and rewritten for the Central Texas market (Downtown Austin, South Congress, East Austin, The Domain, Westlake, Mueller, Round Rock, Cedar Park, Pflugerville, Lakeway). It has an SEO engine that took real work to set up. Respect the rules below or `npm run lint:seo` will fail the build.
+This project is Austin Capital - an Austin, TX business-lending marketplace site. It was cloned from a Miami precedent and rewritten for the Central Texas market (Downtown Austin, South Congress, East Austin, The Domain, Westlake, Mueller, Round Rock, Cedar Park, Pflugerville, Lakeway). It has an SEO engine that took real work to set up. Respect the rules below or `npm run lint:seo` will fail the build.
 
-## Protected files — do NOT edit without explicit human approval
+## Protected files - do NOT edit without explicit human approval
 
 - `src/lib/site-config.ts`
 - `src/lib/seo.ts`
@@ -18,10 +18,10 @@ This project is Austin Capital — an Austin, TX business-lending marketplace si
 
 The CI check fails the build if any of these are found in `src/`:
 
-1. A `lovable.app` URL anywhere — use `SITE_URL` from `site-config.ts` instead.
-2. A `<meta name="keywords">` tag — Google has ignored this for over a decade.
-3. An `aggregateRating` JSON-LD field — this site is a finance/loan business; fake reviews violate Google policy and create legal liability. The Florida AG also actively pursues finance/lending operators that publish fabricated review counts.
-4. A `<link rel="canonical">` inside `src/routes/__root.tsx` — canonicals must live on each page's `head()` via `buildHead()`.
+1. A `lovable.app` URL anywhere - use `SITE_URL` from `site-config.ts` instead.
+2. A `<meta name="keywords">` tag - Google has ignored this for over a decade.
+3. An `aggregateRating` JSON-LD field - this site is a finance/loan business; fake reviews violate Google policy and create legal liability. The Florida AG also actively pursues finance/lending operators that publish fabricated review counts.
+4. A `<link rel="canonical">` inside `src/routes/__root.tsx` - canonicals must live on each page's `head()` via `buildHead()`.
 
 ## What you CAN edit freely
 

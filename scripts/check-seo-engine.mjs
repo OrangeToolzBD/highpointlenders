@@ -1,4 +1,4 @@
-// CI check — fails the build if SEO regressions sneak back in.
+// CI check - fails the build if SEO regressions sneak back in.
 // See AGENTS.md for what's protected and why.
 
 import { readdirSync, readFileSync, statSync } from "node:fs";
@@ -51,7 +51,7 @@ try {
   const rc = readFileSync(ROOT_TSX, "utf-8");
   if (/rel\s*[:=]\s*["']canonical["']/i.test(rc)) {
     errors.push(
-      "src/routes/__root.tsx  canonical link must not live in __root.tsx — set it per page via buildHead()",
+      "src/routes/__root.tsx  canonical link must not live in __root.tsx - set it per page via buildHead()",
     );
   }
 } catch {}

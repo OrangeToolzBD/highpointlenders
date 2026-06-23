@@ -1,4 +1,4 @@
-// Long-form body copy per industry — written for Austin / Central Texas context.
+// Long-form body copy per industry - written for Austin / Central Texas context.
 // Used by industry.$slug.tsx to lift pages above the 700-word threshold.
 // Mock/placeholder copy while INDEXABLE=false. Owner/writer can edit freely.
 

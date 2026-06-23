@@ -1,4 +1,4 @@
-// Austin Capital — SEO pillar pages for Austin, TX.
+// Austin Capital - SEO pillar pages for Austin, TX.
 // 18 Money Pillars + 20 Vertical Pillars = 38 total.
 
 export type PillarKind = "money" | "vertical";
@@ -11,7 +11,7 @@ export type Pillar = {
   description: string;
   bullets: string[];
   highlight: string;
-  /** Approximate national monthly search volume — used for SEO ordering. */
+  /** Approximate national monthly search volume - used for SEO ordering. */
   volume?: number;
 };
 
@@ -44,7 +44,7 @@ export const MONEY_PILLARS: Pillar[] = [
     kind: "money",
     tagline: "Cover payroll, inventory and seasonal gaps",
     description:
-      "Operating capital sized to your monthly revenue and bridged to your real cash cycle — built for Austin restaurants, music venues, tech services and Hill Country hospitality.",
+      "Operating capital sized to your monthly revenue and bridged to your real cash cycle - built for Austin restaurants, music venues, tech services and Hill Country hospitality.",
     bullets: ["$10K-$2M", "Daily, weekly or monthly payments", "No collateral options"],
     highlight: "Funded in 24 hrs",
     volume: 50000,
@@ -66,7 +66,7 @@ export const MONEY_PILLARS: Pillar[] = [
     kind: "money",
     tagline: "The SBA's flagship working capital program",
     description:
-      "Austin's most popular SBA program — flexible use of proceeds for working capital, equipment, acquisition or refinance across Downtown, the Domain, Westlake and the broader Central Texas market.",
+      "Austin's most popular SBA program - flexible use of proceeds for working capital, equipment, acquisition or refinance across Downtown, the Domain, Westlake and the broader Central Texas market.",
     bullets: ["Up to $5M", "Up to 10-year working capital terms", "Real estate up to 25 years"],
     highlight: "From 8.5% APR",
     volume: 50000,
@@ -77,7 +77,7 @@ export const MONEY_PILLARS: Pillar[] = [
     kind: "money",
     tagline: "Funding tailored to Austin small businesses",
     description:
-      "Compare every major small business loan product — term loans, lines of credit, SBA, equipment, factoring and more — through a single soft-pull application sized for Texas operators.",
+      "Compare every major small business loan product - term loans, lines of credit, SBA, equipment, factoring and more - through a single soft-pull application sized for Texas operators.",
     bullets: ["$5K-$5M", "75+ lender network", "Soft credit pull only"],
     highlight: "Funded in 24 hrs",
   },
@@ -97,7 +97,7 @@ export const MONEY_PILLARS: Pillar[] = [
     kind: "money",
     tagline: "No collateral required",
     description:
-      "Cash-flow underwritten loans with no UCC blanket lien or hard collateral — for established Austin services firms, SaaS operators and asset-light professional practices.",
+      "Cash-flow underwritten loans with no UCC blanket lien or hard collateral - for established Austin services firms, SaaS operators and asset-light professional practices.",
     bullets: ["Up to $500K", "Terms 1-5 years", "Funded in 1-3 days"],
     highlight: "Soft pull pre-qual",
   },
@@ -117,7 +117,7 @@ export const MONEY_PILLARS: Pillar[] = [
     kind: "money",
     tagline: "Buy an existing Austin business",
     description:
-      "SBA-backed acquisition financing for partner buyouts, succession purchases, and bolt-on deals across Travis and Williamson counties — particularly active in suburban professional services, hospitality and trades.",
+      "SBA-backed acquisition financing for partner buyouts, succession purchases, and bolt-on deals across Travis and Williamson counties - particularly active in suburban professional services, hospitality and trades.",
     bullets: ["10% down with SBA 7(a)", "Goodwill financing", "Earn-out friendly"],
     highlight: "Up to $5M",
   },
@@ -127,7 +127,7 @@ export const MONEY_PILLARS: Pillar[] = [
     kind: "money",
     tagline: "Borrow against open A/R",
     description:
-      "A revolving facility secured by your receivables — perfect for SH-130 corridor freight forwarders, Domain B2B SaaS, staffing firms and creative agencies with consistent invoice volume.",
+      "A revolving facility secured by your receivables - perfect for SH-130 corridor freight forwarders, Domain B2B SaaS, staffing firms and creative agencies with consistent invoice volume.",
     bullets: ["Up to 90% AR advance", "Lines $250K-$20M", "Reporting-friendly"],
     highlight: "Revolving",
   },
@@ -167,7 +167,7 @@ export const MONEY_PILLARS: Pillar[] = [
     kind: "money",
     tagline: "Local lender access for Austin owners",
     description:
-      "Skip the dial-the-bank routine. Get matched with 75+ vetted regional and national lenders that fund Austin businesses — Texas-licensed specialists who know the Central Texas market.",
+      "Skip the dial-the-bank routine. Get matched with 75+ vetted regional and national lenders that fund Austin businesses - Texas-licensed specialists who know the Central Texas market.",
     bullets: ["75+ lender network", "Texas SBA Preferred banks", "Central Texas underwriting"],
     highlight: "60-second match",
   },
@@ -243,7 +243,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Clinics & physician groups",
     description:
-      "Acquisition, partner buy-in, expansion and working capital tailored to insurance reimbursement timing — sized for Austin's dense pediatric, aesthetics, dermatology and primary-care market.",
+      "Acquisition, partner buy-in, expansion and working capital tailored to insurance reimbursement timing - sized for Austin's dense pediatric, aesthetics, dermatology and primary-care market.",
     bullets: ["Up to 100% project financing", "Terms up to 10 years", "Deferred payment options"],
     highlight: "$50K-$7M",
     volume: 500,
@@ -254,7 +254,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Fit-out, expansion & equipment",
     description:
-      "Open the second location, refresh the dining room, or weather a slow season with capital structured for Austin hospitality cash flow — SoCo cafes to East Austin breweries.",
+      "Open the second location, refresh the dining room, or weather a slow season with capital structured for Austin hospitality cash flow - SoCo cafes to East Austin breweries.",
     bullets: ["Daily, weekly or monthly payments", "Same-day approvals", "No equity required"],
     highlight: "$25K-$2M",
     volume: 500,
@@ -265,7 +265,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Owner-operators to fleet expansion",
     description:
-      "Capital to add tractors, cover insurance down payments and bridge slow-pay receivables — built for SH-130, I-35 and the freight corridors feeding Samsung, Tesla and the broader Texas Triangle.",
+      "Capital to add tractors, cover insurance down payments and bridge slow-pay receivables - built for SH-130, I-35 and the freight corridors feeding Samsung, Tesla and the broader Texas Triangle.",
     bullets: ["DOT-friendly underwriting", "Factoring + term combos", "Fuel & maintenance reserves"],
     highlight: "Funded in 24 hrs",
   },
@@ -275,7 +275,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Ground-up & renovation projects",
     description:
-      "Multi-draw financing aligned to your construction schedule with interest-only periods during the build phase — sized for Austin mid-rise residential, Domain mixed-use and Hill Country hospitality builds.",
+      "Multi-draw financing aligned to your construction schedule with interest-only periods during the build phase - sized for Austin mid-rise residential, Domain mixed-use and Hill Country hospitality builds.",
     bullets: ["Up to 80% LTC", "12-36 month terms", "Convertible to permanent financing"],
     highlight: "$250K-$25M",
   },
@@ -285,7 +285,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Acquisition & PIP renovation",
     description:
-      "Capital for flagged and independent properties across Central Texas hospitality — Downtown convention hotels, SoCo boutiques, Domain corporate hotels, and Hill Country resort properties.",
+      "Capital for flagged and independent properties across Central Texas hospitality - Downtown convention hotels, SoCo boutiques, Domain corporate hotels, and Hill Country resort properties.",
     bullets: ["SBA 7(a) & 504", "Bridge to perm", "Up to 90% LTV"],
     highlight: "$500K-$25M",
   },
@@ -295,7 +295,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Beauty, wellness & medical aesthetics",
     description:
-      "Chair rentals, suite build-outs, product inventory and marketing — plus medical aesthetics financing for the laser, injectables and body-contouring market growing across the Austin metro.",
+      "Chair rentals, suite build-outs, product inventory and marketing - plus medical aesthetics financing for the laser, injectables and body-contouring market growing across the Austin metro.",
     bullets: ["Equipment & build-out", "Med-spa & aesthetics", "Suite operators welcome"],
     highlight: "Quick pre-qual",
   },
@@ -305,7 +305,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Inventory & storefront capital",
     description:
-      "Stock up for the season, open a second location, or refresh your Austin storefront with capital sized to retail cash flow cycles — SoCo boutiques to Domain flagships.",
+      "Stock up for the season, open a second location, or refresh your Austin storefront with capital sized to retail cash flow cycles - SoCo boutiques to Domain flagships.",
     bullets: ["Seasonal payment structures", "Inventory financing", "POS-integrated underwriting"],
     highlight: "$15K-$1M",
   },
@@ -325,7 +325,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Mobile food business funding",
     description:
-      "Finance the truck, the build-out and the commissary kitchen — Austin pioneered the modern food-truck scene and the financing infrastructure runs deep here.",
+      "Finance the truck, the build-out and the commissary kitchen - Austin pioneered the modern food-truck scene and the financing infrastructure runs deep here.",
     bullets: ["New & used trucks", "100% financing", "Startup-friendly"],
     highlight: "Approvals in 24 hrs",
   },
@@ -335,7 +335,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Equipment & build-out",
     description:
-      "Outfit the floor, expand into recovery and group fitness, or refinance higher-rate equipment leases — Austin is one of the most active fitness markets in the country.",
+      "Outfit the floor, expand into recovery and group fitness, or refinance higher-rate equipment leases - Austin is one of the most active fitness markets in the country.",
     bullets: ["Cardio + strength bundles", "Recovery & spa add-ons", "Refinance options"],
     highlight: "Up to $500K",
   },
@@ -355,7 +355,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Tractors, implements & ranch equipment",
     description:
-      "Seasonal-friendly structures tailored to ranch and farm cash flow — Hill Country cattle operations, vineyards, peach orchards and specialty Texas ag.",
+      "Seasonal-friendly structures tailored to ranch and farm cash flow - Hill Country cattle operations, vineyards, peach orchards and specialty Texas ag.",
     bullets: ["Seasonal payment options", "New & used equipment", "Trade-in friendly"],
     highlight: "Same-week funding",
   },
@@ -365,7 +365,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Mowers, trucks and trailers",
     description:
-      "Build out your Austin landscaping fleet with financing built for year-round operations — Texas Hill Country crews and HOA-heavy suburbs keep equipment running 12 months a year.",
+      "Build out your Austin landscaping fleet with financing built for year-round operations - Texas Hill Country crews and HOA-heavy suburbs keep equipment running 12 months a year.",
     bullets: ["Bundle multiple units", "Skip-payment options", "Soft credit pulls"],
     highlight: "Pre-qualify in minutes",
   },
@@ -375,7 +375,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Childcare facility financing",
     description:
-      "SBA 7(a) and 504 loans for licensed childcare operators across the Austin metro — real estate, renovation, equipment and working capital in one package.",
+      "SBA 7(a) and 504 loans for licensed childcare operators across the Austin metro - real estate, renovation, equipment and working capital in one package.",
     bullets: ["10% down on real estate", "25-year amortization", "Low fixed rates"],
     highlight: "Up to $5M",
   },
@@ -395,7 +395,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Fast-track funding for veteran owners",
     description:
-      "Expedited SBA Express loans for veteran-owned businesses with reduced fees and 36-hour SBA turnaround — Texas ranks #1 nationally for veteran-owned business density.",
+      "Expedited SBA Express loans for veteran-owned businesses with reduced fees and 36-hour SBA turnaround - Texas ranks #1 nationally for veteran-owned business density.",
     bullets: ["Up to $500K", "Reduced SBA fees for veterans", "36-hour SBA turnaround"],
     highlight: "Veteran-friendly",
   },
@@ -405,7 +405,7 @@ export const VERTICAL_PILLARS: Pillar[] = [
     kind: "vertical",
     tagline: "Capital for women-owned businesses",
     description:
-      "Working capital, SBA and microloan programs tailored to certified women-owned businesses across Austin — one of the strongest women-founder ecosystems in Texas.",
+      "Working capital, SBA and microloan programs tailored to certified women-owned businesses across Austin - one of the strongest women-founder ecosystems in Texas.",
     bullets: ["SBA & microloans", "WBE-friendly underwriting", "$5K-$5M"],
     highlight: "Equity-free",
   },

@@ -1,4 +1,4 @@
-// Long-form body copy per Austin metro neighborhood — written for local context.
+// Long-form body copy per Austin metro neighborhood - written for local context.
 // Used by austin.$suburb.tsx to lift pages above the 700-word threshold.
 // Mock/placeholder copy while INDEXABLE=false. Owner/writer can edit freely.
 

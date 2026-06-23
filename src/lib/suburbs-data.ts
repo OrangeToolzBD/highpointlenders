@@ -1,5 +1,5 @@
-// Austin Capital — Austin metro neighborhood pages.
-// Unique local content per neighborhood — never a city-page find/replace.
+// Austin Capital - Austin metro neighborhood pages.
+// Unique local content per neighborhood - never a city-page find/replace.
 
 export type Suburb = {
   slug: string;
@@ -8,9 +8,9 @@ export type Suburb = {
   county: string;
   /** Short tagline / sub-heading. */
   tagline: string;
-  /** First paragraph — unique local intro (700+ word pages should expand on this). */
+  /** First paragraph - unique local intro (700+ word pages should expand on this). */
   intro: string;
-  /** Local landmarks and notable spots — used in body copy. */
+  /** Local landmarks and notable spots - used in body copy. */
   landmarks: string[];
   /** Notable local industries / business types. */
   industries: string[];
@@ -73,7 +73,7 @@ export const SUBURBS: Suburb[] = [
     slug: "the-domain",
     name: "The Domain",
     county: "City of Austin",
-    tagline: "North Austin's second downtown — tech HQs, retail, multifamily and conference hospitality",
+    tagline: "North Austin's second downtown - tech HQs, retail, multifamily and conference hospitality",
     intro:
       "The Domain anchors North Austin and operates as the metro's second downtown: Apple, IBM, Indeed, Facebook and a long list of tech HQs occupy the surrounding office product, paired with the open-air retail center, JW Marriott, Westin and Archer hotels, multifamily towers and the densest concentration of national-flag restaurants in the metro. Austin Capital finances Domain-area operators with SBA acquisitions, working capital for hospitality and retail, equipment financing for restaurants and fitness, and CRE bridge loans tied to the active Domain real estate cycle.",
     landmarks: ["Apple HQ", "IBM Campus", "The Domain shopping center", "JW Marriott Domain", "Q2 Stadium (adjacent)"],

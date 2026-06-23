@@ -1,4 +1,4 @@
-# Developer SEO Checklist — 14 Items to Fix
+# Developer SEO Checklist - 14 Items to Fix
 
 > Run this **after** Lovable finishes building the site, never during. Follow in order.
 > Each item: **❌ The Problem → ✅ The Fix → 🧪 How to Test**
@@ -18,7 +18,7 @@
 | 7 | One JSON-LD `@graph` schema per page | ✅ Done |
 | 8 | Remove all fake business info | ✅ Done |
 | 9 | FAQ with visible answers (AEO) | ✅ Done |
-| 10 | Unique 700+ word content per page | ⚠️ Partial — see notes |
+| 10 | Unique 700+ word content per page | ⚠️ Partial - see notes |
 | 11 | Allow AI search bots + real sources (GEO) | ✅ Done |
 | 12 | Core Web Vitals (fonts + images) | ⏳ Pending |
 | 13 | Real 404 status on unknown URLs | ✅ Done |
@@ -32,7 +32,7 @@
 The page uses the preview address (like `something.lovable.app`), or the URL is typed by hand on many pages. When the site goes live, every link points to the wrong, dead place.
 
 **✅ The Fix**
-Keep the real address in ONE place — a `SITE_URL` value inside `src/lib/site-config.ts`. Every page reads it from there. Every canonical, Open Graph URL, sitemap URL, and schema URL must be built from `SITE_URL`. Remove all hardcoded `lovable.app` or hand-typed addresses.
+Keep the real address in ONE place - a `SITE_URL` value inside `src/lib/site-config.ts`. Every page reads it from there. Every canonical, Open Graph URL, sitemap URL, and schema URL must be built from `SITE_URL`. Remove all hardcoded `lovable.app` or hand-typed addresses.
 
 **🧪 How to Test**
 Open the page → right-click → **View Page Source** (not "Inspect"). Search for `lovable.app`. You should find **zero**. The `<link rel="canonical">` should show the real address.
@@ -58,7 +58,7 @@ On a test site, View Source → you should see `noindex`. Open `/robots.txt` →
 
 **What was actually done:**
 - `INDEXABLE` exported from `site-config.ts`, driven by `VITE_INDEXABLE === "true"`.
-- Added `<meta name="robots">` to `__root.tsx` — emits `noindex, nofollow` by default, `index, follow` when live.
+- Added `<meta name="robots">` to `__root.tsx` - emits `noindex, nofollow` by default, `index, follow` when live.
 
 ---
 
@@ -77,7 +77,7 @@ Open `/robots.txt` in the browser.
 
 **What was actually done:**
 - Created `src/lib/seo-robots.ts` (`buildRobotsTxt()` + `robotsTxtResponse()`).
-- Wired into `src/server.ts` — intercepts `/robots.txt` before the SSR pipeline.
+- Wired into `src/server.ts` - intercepts `/robots.txt` before the SSR pipeline.
 - Live mode allows Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, Claude-SearchBot + wildcard, with `Sitemap:` line.
 - Test mode returns `User-agent: * / Disallow: /`.
 
@@ -99,7 +99,7 @@ Open `/sitemap.xml`. You should see all pages, each URL starting with the real d
 - Wired into `src/server.ts`.
 - Lists 62 URLs: 4 static + 12 industries + 38 pillars + 8 suburbs. All absolute.
 - In noindex mode the route returns HTTP 404 so the sitemap can't leak.
-- **Deliberately excluded suburb × pillar combos** — those use templated content and would be doorway pages until Item #10 audits each one.
+- **Deliberately excluded suburb × pillar combos** - those use templated content and would be doorway pages until Item #10 audits each one.
 
 ---
 
@@ -116,7 +116,7 @@ View Source on a few pages → each has a **different** `<title>` and `<meta nam
 
 **What was actually done:**
 - Created `src/lib/seo.ts` with `buildHead({ title, description, path, noindex? })`.
-- Stripped `__root.tsx` of all per-page meta — only charset/viewport/robots/stylesheet remain.
+- Stripped `__root.tsx` of all per-page meta - only charset/viewport/robots/stylesheet remain.
 - Rewrote `head()` on all 8 routes to use `buildHead`. All titles ≤60 chars.
 - Side fixes during refactor:
   - Removed `keywords` meta tag from `index.tsx` (Item #14 will CI-enforce).
@@ -133,7 +133,7 @@ View Source on a few pages → each has a **different** `<title>` and `<meta nam
 The canonical link is missing, relative (`/about`), or points to the wrong address.
 
 **✅ The Fix**
-Every page has exactly ONE canonical link, with a FULL absolute address (`https://realdomain/path`), set on the page itself — **never** in the root layout (`__root.tsx`).
+Every page has exactly ONE canonical link, with a FULL absolute address (`https://realdomain/path`), set on the page itself - **never** in the root layout (`__root.tsx`).
 
 **🧪 How to Test**
 View Source → exactly **one** `<link rel="canonical">`, full address, matching the current page URL.
@@ -142,7 +142,7 @@ View Source → exactly **one** `<link rel="canonical">`, full address, matching
 - `buildHead()` now emits `links: [{ rel: "canonical", href: absoluteUrl(path) }]`.
 - Removed all per-page relative `links: [{ rel: "canonical" }]` overrides.
 - 3 pages (`contact`, `apply-now`, `industry`) gained a canonical they didn't have before.
-- Parent routes (`long-beach.tsx` + `long-beach.$suburb.tsx`) check `matches`/`match` to detect "am I the leaf?" — they only emit head when leaf. Without this fix, nested URLs produced 2 or 3 canonicals.
+- Parent routes (`long-beach.tsx` + `long-beach.$suburb.tsx`) check `matches`/`match` to detect "am I the leaf?" - they only emit head when leaf. Without this fix, nested URLs produced 2 or 3 canonicals.
 
 ---
 
@@ -167,7 +167,7 @@ Put the page URL into **Google Rich Results Test**. It should read the schema wi
   - `/industry/$slug` and `/pillar/$slug` → adds a `Service` node
   - `/long-beach/$suburb` → adds a `Place` node
   - `/long-beach/$suburb/$pillar` → adds Service + Place
-- Single Organization `@id` (`SITE_URL/#organization`) referenced from every other node — no duplication.
+- Single Organization `@id` (`SITE_URL/#organization`) referenced from every other node - no duplication.
 - **Removed** the fake `aggregateRating: 4.8 / 1280` from `index.tsx`.
 - `hasPublicOffice: false` → schema emits Service Area Business pattern (areaServed only, no address/geo/hours). Flip to true and address/geo/openingHoursSpecification appear automatically.
 
@@ -188,11 +188,11 @@ Read the Home, About, and Contact pages. Every number, review, and claim must be
 
 **What was actually done:**
 - Added `stats` (reviewsRating, reviewsCount, businessesFunded, loansFacilitated, fastestFundingHours) and `trustBadges` to `SITE_CONFIG`.
-- Removed third-party credential badges (`BBB Accredited`, `SBA Preferred`, `Trustpilot Verified`) — these can't be mock-flagged. Owner adds them back via `trustBadges` only when real.
-- Centralized every phone number — `index.tsx`, `apply-now.tsx`, `industry.$slug.tsx`, `pillar.$slug.tsx`, `long-beach.$suburb.tsx`, `long-beach.$suburb.$pillar.tsx` all now read from `SITE_CONFIG.phone` / `SITE_CONFIG.phoneHref`. (Pages used to have 3 different inconsistent numbers and one mismatched display vs `tel:` link.)
+- Removed third-party credential badges (`BBB Accredited`, `SBA Preferred`, `Trustpilot Verified`) - these can't be mock-flagged. Owner adds them back via `trustBadges` only when real.
+- Centralized every phone number - `index.tsx`, `apply-now.tsx`, `industry.$slug.tsx`, `pillar.$slug.tsx`, `long-beach.$suburb.tsx`, `long-beach.$suburb.$pillar.tsx` all now read from `SITE_CONFIG.phone` / `SITE_CONFIG.phoneHref`. (Pages used to have 3 different inconsistent numbers and one mismatched display vs `tel:` link.)
 - `contact.tsx`:
   - Phone / email now from `SITE_CONFIG`.
-  - Removed fake "Headquarters: 500 Capital Avenue, Suite 1200, New York, NY 10018" — replaced with a conditional block that shows the real address when `hasPublicOffice: true`, or a service-area list from `areasServed` when false.
+  - Removed fake "Headquarters: 500 Capital Avenue, Suite 1200, New York, NY 10018" - replaced with a conditional block that shows the real address when `hasPublicOffice: true`, or a service-area list from `areasServed` when false.
   - Fixed timezone bug: hours displayed "EST"/"PT"/"ET" originally but the business is Austin (Central). Now "CT".
 - All UI stats (`4.8/5`, `$500M+`, `10,000+`) now read from `SITE_CONFIG.stats` so they update from one place.
 
@@ -214,7 +214,7 @@ View Source → you can find the full answer text **even for closed questions**.
 - Hoisted the FAQ data on `index.tsx` to module-level `HOME_FAQS` so `head()` and the `<FAQ />` component share one source of truth.
 - Added `FAQPage` to the home page `@graph` via `extraNodes: [faqNode(...)]`.
 - Added `forceMount` to `AccordionContent` in the FAQ so Radix keeps the answer text in the DOM when an item is collapsed.
-- **Bug fix in `accordion.tsx`:** the existing component referenced `animate-accordion-up` / `animate-accordion-down` keyframes that were **never defined** in this project. That left closed items rendering at full height. Replaced the broken animation classes with `data-[state=closed]:hidden` on the outer Radix `Content` — closed = `display:none` (CSS hide, content still in DOM). Toggle works because Radix flips the `data-state` attribute.
+- **Bug fix in `accordion.tsx`:** the existing component referenced `animate-accordion-up` / `animate-accordion-down` keyframes that were **never defined** in this project. That left closed items rendering at full height. Replaced the broken animation classes with `data-[state=closed]:hidden` on the outer Radix `Content` - closed = `display:none` (CSS hide, content still in DOM). Toggle works because Radix flips the `data-state` attribute.
 - **Verified:** all 6 questions in schema, all 6 answer strings present in raw HTML even with every accordion item starting in `data-state="closed"`. Google reads them; users see them only after clicking.
 
 ---
@@ -225,32 +225,32 @@ View Source → you can find the full answer text **even for closed questions**.
 Many pages with the same words and only the city name changed. Google calls this **"doorway / scaled content"** and can punish the **whole site**.
 
 **✅ The Fix**
-Every main page has its own real words (**700+ words**) with real local detail. City/area pages must be truly different — not find-and-replace clones.
+Every main page has its own real words (**700+ words**) with real local detail. City/area pages must be truly different - not find-and-replace clones.
 
 **🧪 How to Test**
 Pick 3 city pages and compare them. If they are the same with only the name swapped → **not OK**. If a page has no real unique content yet → set it to `noindex` until it is written.
 
 **What was actually done:**
-- Created `src/lib/pillars-content.ts` — 38 unique long-form bodies (one per pillar) with real Austin context (Port-tied logistics, neighborhood retail corridors, restaurant clusters, healthcare specialty desks, etc.).
-- Created `src/lib/industries-content.ts` — 10 unique long-form bodies (one per industry) tying each industry to specific Austin commercial geography and lender appetite.
-- Created `src/lib/suburbs-content.ts` — 10 unique long-form bodies (one per suburb) describing the local commercial mix and typical financing patterns for businesses in that specific neighborhood.
+- Created `src/lib/pillars-content.ts` - 38 unique long-form bodies (one per pillar) with real Austin context (Port-tied logistics, neighborhood retail corridors, restaurant clusters, healthcare specialty desks, etc.).
+- Created `src/lib/industries-content.ts` - 10 unique long-form bodies (one per industry) tying each industry to specific Austin commercial geography and lender appetite.
+- Created `src/lib/suburbs-content.ts` - 10 unique long-form bodies (one per suburb) describing the local commercial mix and typical financing patterns for businesses in that specific neighborhood.
 - Updated `pillar.$slug.tsx`, `industry.$slug.tsx`, and `long-beach.$suburb.tsx` templates to render the long-form body content.
 - **Word counts as of Austin clone (regenerate before going live):**
-  - Pillars: avg ~400 words, min 349 — **below 700 target**
-  - Industries: avg ~495 words — **below 700 target**
-  - Suburbs: avg ~652 words, several below 700 — **close to but under target**
+  - Pillars: avg ~400 words, min 349 - **below 700 target**
+  - Industries: avg ~495 words - **below 700 target**
+  - Suburbs: avg ~652 words, several below 700 - **close to but under target**
   - Home, hub, contact, apply-now pages: comfortably above target
   - **Action required before INDEXABLE=true:** extend each pillar/industry/suburb body with at least one more substantive paragraph to clear 700+ words. The structure (PILLAR_BODIES / INDUSTRY_BODIES / SUBURB_BODIES are `Record<string, string[]>` so adding a fourth paragraph per entry is mechanical.
-- `/contact` and `/apply-now` are form pages (not content pages) — `apply-now` is `noindex` so word count is irrelevant. `contact` is left as a contact page with the NAP block + form, which is the correct shape for that page type.
+- `/contact` and `/apply-now` are form pages (not content pages) - `apply-now` is `noindex` so word count is irrelevant. `contact` is left as a contact page with the NAP block + form, which is the correct shape for that page type.
 
-> **Still pending audit:** `long-beach.$suburb.$pillar` (suburb × pillar combinations) — these are NOT in `sitemap.xml` and their content is still templated. Either rewrite each combination uniquely or keep them excluded. They will not be indexed unless explicitly added.
+> **Still pending audit:** `long-beach.$suburb.$pillar` (suburb × pillar combinations) - these are NOT in `sitemap.xml` and their content is still templated. Either rewrite each combination uniquely or keep them excluded. They will not be indexed unless explicitly added.
 
 ---
 
 ## 11. AI Engines (GEO) ✅
 
 **❌ The Problem**
-AI bots are blocked, or there is nothing useful for them — no facts, no sources, no author.
+AI bots are blocked, or there is nothing useful for them - no facts, no sources, no author.
 
 **✅ The Fix**
 In the live `robots.txt`, allow AI search crawlers: **OAI-SearchBot, PerplexityBot, Claude-SearchBot, Googlebot, Bingbot**. On each main page add one real statistic with a source link (like SBA.gov) and a real named author with credentials.
@@ -262,8 +262,8 @@ Open `/robots.txt` → the AI bots are allowed. Over time, ask ChatGPT/Perplexit
 - AI search crawlers already explicitly allowed in `robots.txt` since Item #3 (Googlebot, Bingbot, OAI-SearchBot, PerplexityBot, Claude-SearchBot).
 - Added `author` to `SITE_CONFIG` (name, title, credentials, profileUrl).
 - Added `featuredStat` to `SITE_CONFIG` (value, claim, sourceName, sourceUrl).
-- Author byline added to the Footer with `rel="author"` link to profile — appears on **every page** as an E-E-A-T signal.
-- Cited statistic added below the home page TrustRow — "There are 32.5 million U.S. small businesses operating today — Source: SBA Office of Advocacy" with a real external link to advocacy.sba.gov.
+- Author byline added to the Footer with `rel="author"` link to profile - appears on **every page** as an E-E-A-T signal.
+- Cited statistic added below the home page TrustRow - "There are 32.5 million U.S. small businesses operating today - Source: SBA Office of Advocacy" with a real external link to advocacy.sba.gov.
 - Per project policy, both author and stat are mock placeholders while `INDEXABLE=false`. Owner replaces with real author + real statistic before going live.
 
 ---
@@ -289,7 +289,7 @@ Run the page in **PageSpeed Insights**. Targets:
 ## 13. "Page Not Found" Must Be a Real 404 ✅
 
 **❌ The Problem**
-A wrong URL shows a page with HTTP status **200** — Google then thinks it is a real page.
+A wrong URL shows a page with HTTP status **200** - Google then thinks it is a real page.
 
 **✅ The Fix**
 Unknown URLs must return a real HTTP **404** status. Verify it on the **deployed** site, not just locally.
@@ -298,7 +298,7 @@ Unknown URLs must return a real HTTP **404** status. Verify it on the **deployed
 Open a fake URL like `/this-does-not-exist`. In browser DevTools → **Network** tab → status must be **404**.
 
 **What was actually done:**
-- Audited current behavior — no code change needed. TanStack Start's SSR pipeline already propagates `throw notFound()` (used in every dynamic route loader: `industry.$slug`, `pillar.$slug`, `long-beach.$suburb`, `long-beach.$suburb.$pillar`) to a real HTTP 404, and the root's `notFoundComponent` catches unmatched URLs.
+- Audited current behavior - no code change needed. TanStack Start's SSR pipeline already propagates `throw notFound()` (used in every dynamic route loader: `industry.$slug`, `pillar.$slug`, `long-beach.$suburb`, `long-beach.$suburb.$pillar`) to a real HTTP 404, and the root's `notFoundComponent` catches unmatched URLs.
 - Verified on **both** dev server and production build (`vite build && vite preview`):
 
 | URL | Status |
@@ -310,16 +310,16 @@ Open a fake URL like `/this-does-not-exist`. In browser DevTools → **Network**
 | `/long-beach/nonexistent/nonexistent` | **404** ✓ |
 | `/random/deep/nested/route` | **404** ✓ |
 | `/industry/` (trailing slash) | 307 redirect to canonical (correct) |
-| `/?foo=bar` | 200 (correct — `/` is a real page) |
+| `/?foo=bar` | 200 (correct - `/` is a real page) |
 
-- Content-type is `text/html; charset=utf-8` — Google sees a real HTML 404, not JSON.
+- Content-type is `text/html; charset=utf-8` - Google sees a real HTML 404, not JSON.
 
 ---
 
-## 14. Lock It Down — Do This LAST ✅
+## 14. Lock It Down - Do This LAST ✅
 
 **❌ The Problem**
-After all fixes are done, Lovable can later rewrite a page and bring back old problems — the preview address, fake reviews, the `keywords` tag.
+After all fixes are done, Lovable can later rewrite a page and bring back old problems - the preview address, fake reviews, the `keywords` tag.
 
 **✅ The Fix**
 **Only after steps 1–13 are complete:**
@@ -330,10 +330,10 @@ After all fixes are done, Lovable can later rewrite a page and bring back old pr
 Run the CI check. It passes on a clean site, and fails if you intentionally add a bad pattern.
 
 **What was actually done:**
-- Created `AGENTS.md` at project root — lists the 8 protected engine files, the 4 forbidden patterns, what AI builders CAN edit freely, and a copy-paste template for wiring SEO on new pages via `buildHead()`.
-- Created `scripts/check-seo-engine.mjs` — scans `src/` for the 4 patterns and exits 1 with a file:line locator on any hit. Skips `routeTree.gen.ts` and the script itself.
+- Created `AGENTS.md` at project root - lists the 8 protected engine files, the 4 forbidden patterns, what AI builders CAN edit freely, and a copy-paste template for wiring SEO on new pages via `buildHead()`.
+- Created `scripts/check-seo-engine.mjs` - scans `src/` for the 4 patterns and exits 1 with a file:line locator on any hit. Skips `routeTree.gen.ts` and the script itself.
 - Wired into `package.json`: added `lint:seo` script and a `prebuild` hook so `npm run build` automatically runs the check first. If a forbidden pattern is found, the build fails before Vite even starts.
-- **Adversarially verified** — each of the 4 patterns was introduced into the codebase one at a time; the check caught each with an exit code 1 and a clear message. Clean state confirmed to pass with exit 0.
+- **Adversarially verified** - each of the 4 patterns was introduced into the codebase one at a time; the check caught each with an exit code 1 and a clear message. Clean state confirmed to pass with exit 0.
 
 ---
 
@@ -352,7 +352,7 @@ Run the CI check. It passes on a clean site, and fails if you intentionally add 
 - [ ] **Same NAP in footer** on every page
 - [ ] **Going live:** `SITE_URL` = real domain, `VITE_INDEXABLE=true`, sitemap submitted to Google Search Console + Bing
 
-**Done = every box ticked. If unsure about an item, do not go live — ask.**
+**Done = every box ticked. If unsure about an item, do not go live - ask.**
 
 ---
 
@@ -360,16 +360,16 @@ Run the CI check. It passes on a clean site, and fails if you intentionally add 
 
 | File | Purpose |
 |---|---|
-| `src/lib/site-config.ts` | Single source of truth — `SITE_URL`, `INDEXABLE`, `SITE_CONFIG` (NAP, hours, license, stats, trustBadges, social, author, featuredStat), `absoluteUrl()` |
-| `src/lib/seo.ts` | `buildHead({ title, description, path, noindex?, schema? })` — every page's `<head>` |
+| `src/lib/site-config.ts` | Single source of truth - `SITE_URL`, `INDEXABLE`, `SITE_CONFIG` (NAP, hours, license, stats, trustBadges, social, author, featuredStat), `absoluteUrl()` |
+| `src/lib/seo.ts` | `buildHead({ title, description, path, noindex?, schema? })` - every page's `<head>` |
 | `src/lib/seo-robots.ts` | `buildRobotsTxt()` + `robotsTxtResponse()` |
 | `src/lib/seo-sitemap.ts` | `buildSitemapXml()` + `sitemapXmlResponse()` |
-| `src/lib/seo-schema.ts` | `buildGraph()` + `serviceNode()` + `placeNode()` + `faqNode()` — JSON-LD `@graph` builders |
+| `src/lib/seo-schema.ts` | `buildGraph()` + `serviceNode()` + `placeNode()` + `faqNode()` - JSON-LD `@graph` builders |
 | `scripts/check-seo-engine.mjs` | CI check; fails build on `lovable.app`, `keywords` meta, `aggregateRating`, or canonical in `__root.tsx` |
-| `AGENTS.md` | Instructions for AI builders — protected files, forbidden patterns, new-page template |
+| `AGENTS.md` | Instructions for AI builders - protected files, forbidden patterns, new-page template |
 | `.env.example` | Documents `VITE_SITE_URL` and `VITE_INDEXABLE` |
 
-## Engine Files — Developer Only (Lovable Must NOT Edit)
+## Engine Files - Developer Only (Lovable Must NOT Edit)
 
 - `src/lib/site-config.ts`
 - `src/lib/seo.ts`
