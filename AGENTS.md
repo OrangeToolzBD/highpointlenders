@@ -1,6 +1,6 @@
 # Instructions for AI builders (Lovable, Claude, etc.)
 
-This project is Austin Capital - an Austin, TX business-lending marketplace site. It was cloned from a Miami precedent and rewritten for the Central Texas market (Downtown Austin, South Congress, East Austin, The Domain, Westlake, Mueller, Round Rock, Cedar Park, Pflugerville, Lakeway). It has an SEO engine that took real work to set up. Respect the rules below or `npm run lint:seo` will fail the build.
+This project is Highpoint Lenders - an Austin, TX business-lending marketplace site. It was cloned from a Miami precedent and rewritten for the Central Texas market (Downtown Austin, South Congress, East Austin, The Domain, Westlake, Mueller, Round Rock, Cedar Park, Pflugerville, Lakeway). It has an SEO engine that took real work to set up. Respect the rules below or `npm run lint:seo` will fail the build.
 
 ## Protected files - do NOT edit without explicit human approval
 

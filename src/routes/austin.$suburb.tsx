@@ -135,7 +135,7 @@ function SuburbPage() {
         <section className="border-t border-border/60 bg-secondary/40">
           <div className="mx-auto max-w-7xl px-6 py-16">
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              {suburb.name} businesses Austin Capital works with
+              {suburb.name} businesses Highpoint Lenders works with
             </h2>
             <p className="mt-2 text-muted-foreground">Representative case studies: composite profiles of real funding outcomes.</p>
             <div className="mt-8 grid gap-5 md:grid-cols-3">

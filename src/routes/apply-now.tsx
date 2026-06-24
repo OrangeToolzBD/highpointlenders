@@ -10,6 +10,9 @@ import {
   Lock,
   Phone,
   ShieldCheck,
+  FileText,
+  Search,
+  Banknote,
 } from "lucide-react";
 
 const CITY = "Austin";
@@ -64,8 +67,36 @@ function ApplyNowPage() {
         </div>
       </section>
 
+      {/* How it works */}
+      <section className="border-b border-border/60 bg-card/40">
+        <div className="mx-auto grid max-w-6xl gap-4 px-6 py-8 sm:grid-cols-3">
+          {[
+            { n: "1", icon: FileText, title: "Apply", desc: "Fill the form in 60 seconds." },
+            { n: "2", icon: Search, title: "Match", desc: "We shop 75+ Texas lenders." },
+            { n: "3", icon: Banknote, title: "Fund", desc: "Choose an offer, get funded in 24-72 hrs." },
+          ].map((s) => (
+            <div key={s.n} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+              <div className="relative inline-flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-[color:var(--brand-blue)]/10 text-[color:var(--brand-blue)]">
+                <s.icon className="h-5 w-5" />
+                <span className="absolute -right-1.5 -top-1.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[color:var(--brand-blue)] text-[10px] font-bold text-primary-foreground">
+                  {s.n}
+                </span>
+              </div>
+              <div>
+                <div className="text-sm font-semibold">{s.title}</div>
+                <div className="mt-0.5 text-xs text-muted-foreground">{s.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <main className="mx-auto grid min-w-0 max-w-6xl gap-8 px-6 py-12 lg:grid-cols-[1fr_320px]">
-        <div className="min-w-0 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+        <div className="relative min-w-0 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <div
+            className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full opacity-10 blur-3xl"
+            style={{ background: "var(--gradient-primary)" }}
+          />
           <GHLForm />
         </div>
 
@@ -114,13 +145,16 @@ function ApplyNowPage() {
             </div>
           </div>
           <div className="rounded-2xl border border-border bg-secondary/40 p-5 text-sm">
-            <div className="font-semibold">Need help?</div>
+            <div className="flex items-center gap-2 font-semibold">
+              <Phone className="h-4 w-4 text-[color:var(--brand-blue)]" />
+              Need help?
+            </div>
             <p className="mt-1 text-muted-foreground">
               Talk to a {CITY} funding advisor.
             </p>
             <a
               href={SITE_CONFIG.phoneHref}
-              className="mt-3 inline-flex items-center gap-2 font-semibold text-[color:var(--brand-blue)] hover:underline"
+              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[color:var(--brand-blue)]/40 bg-card px-3 py-2 font-semibold text-[color:var(--brand-blue)] transition-colors hover:bg-[color:var(--brand-blue)]/10"
             >
               <Phone className="h-4 w-4" /> {SITE_CONFIG.phone}
             </a>

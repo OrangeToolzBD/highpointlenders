@@ -11,7 +11,7 @@
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" rx="32" />
   <rect x="80" y="80" width="1040" height="470" rx="28" fill="rgba(255,255,255,0.06)" />
-  <text x="120" y="220" fill="#ffffff" font-family="Inter, sans-serif" font-size="72" font-weight="700">Austin Capital</text>
+  <text x="120" y="220" fill="#ffffff" font-family="Inter, sans-serif" font-size="72" font-weight="700">Highpoint Lenders</text>
   <text x="120" y="310" fill="#ffffff" font-family="Inter, sans-serif" font-size="36" font-weight="500">Texas-built capital for Austin operators</text>
   <rect x="120" y="360" width="320" height="16" rx="8" fill="url(#accent)" />
   <text x="120" y="440" fill="#ffffff" font-family="Inter, sans-serif" font-size="28" font-weight="600">SBA loans • lines of credit • commercial real estate</text>

@@ -11,6 +11,9 @@ import {
   ArrowRight,
   Building2,
   HeadphonesIcon,
+  Sparkles,
+  Users,
+  FileText,
 } from "lucide-react";
 import { buildHead } from "@/lib/seo";
 import { buildGraph } from "@/lib/seo-schema";
@@ -72,9 +75,30 @@ function ContactPage() {
         </div>
       </section>
 
+      {/* What to expect strip */}
+      <section className="border-y border-border/60 bg-card/40">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-10 sm:grid-cols-3 sm:px-6 lg:px-8">
+          {[
+            { icon: Sparkles, title: "60-second pre-qual", desc: "Soft pull only, no credit impact." },
+            { icon: Users, title: "Texas-licensed lenders", desc: "75+ vetted SBA & conventional partners." },
+            { icon: FileText, title: "Compare offers freely", desc: "No fee until you close. No pressure." },
+          ].map((s) => (
+            <div key={s.title} className="flex items-start gap-3">
+              <div className="inline-flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-primary/10 text-primary">
+                <s.icon className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-sm font-semibold">{s.title}</div>
+                <div className="mt-0.5 text-xs text-muted-foreground">{s.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Contact channels */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
               icon: Phone,
@@ -82,6 +106,13 @@ function ContactPage() {
               value: SITE_CONFIG.phone,
               sub: "Mon-Fri, 8am-8pm CT",
               href: SITE_CONFIG.phoneHref,
+            },
+            {
+              icon: MessageSquare,
+              title: "Text us",
+              value: "Send a quick text",
+              sub: "Replies within 15 minutes",
+              href: SITE_CONFIG.phoneHref.replace("tel:", "sms:"),
             },
             {
               icon: HeadphonesIcon,
@@ -98,14 +129,18 @@ function ContactPage() {
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <div
-                className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl text-primary-foreground"
+                className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-20"
+                style={{ background: "var(--gradient-primary)" }}
+              />
+              <div
+                className="relative mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl text-primary-foreground"
                 style={{ backgroundImage: "var(--gradient-primary)" }}
               >
                 <c.icon className="h-6 w-6" />
               </div>
-              <div className="text-sm font-medium text-muted-foreground">{c.title}</div>
-              <div className="mt-1 text-xl font-semibold text-foreground">{c.value}</div>
-              <div className="mt-1 text-sm text-muted-foreground">{c.sub}</div>
+              <div className="relative text-sm font-medium text-muted-foreground">{c.title}</div>
+              <div className="relative mt-1 text-xl font-semibold text-foreground">{c.value}</div>
+              <div className="relative mt-1 text-sm text-muted-foreground">{c.sub}</div>
               <ArrowRight className="absolute right-5 top-5 h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
             </a>
           ))}

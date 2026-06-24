@@ -74,6 +74,15 @@ import {
   Smile,
   Leaf,
   Tractor,
+  Landmark,
+  HeartPulse,
+  Scale,
+  Package,
+  HardHat,
+  Gem,
+  Cog,
+  Code2,
+  ShoppingCart,
 } from "lucide-react";
 
 type MegaItemProps = Readonly<{
@@ -217,7 +226,6 @@ const LOAN_GROUPS: {
       { icon: HandCoins, label: "Small Business Loans", desc: "Compare every funding product in one place", slug: "small-business-loans" },
       { icon: CreditCard, label: "Business Line of Credit", desc: "Revolving credit, draw what you need", slug: "business-line-of-credit" },
       { icon: LineChart, label: "Working Capital Loans", desc: "Cover payroll, inventory, seasonal gaps", slug: "working-capital-loans" },
-      { icon: Sparkles, label: "Same-Day Business Loans", desc: "Funded in as little as 24 hours", slug: "same-day-business-loans" },
       { icon: Clock, label: "Short-Term Business Loans", desc: "Fast funding, 3-24 month terms", slug: "short-term-business-loans" },
       { icon: ShieldCheck, label: "Unsecured Business Loans", desc: "No collateral, no UCC blanket", slug: "unsecured-business-loans" },
       { icon: Banknote, label: "Merchant Cash Advance", desc: "Advance against future card sales", slug: "merchant-cash-advance" },
@@ -230,24 +238,16 @@ const LOAN_GROUPS: {
       { icon: FileText, label: "SBA Loans", desc: "Government-backed funding programs", slug: "sba-loans" },
       { icon: FileText, label: "SBA 7(a) Loan", desc: "The SBA's flagship working capital loan", slug: "sba-7a-loan" },
       { icon: Briefcase, label: "Business Acquisition Loans", desc: "Buy an existing Austin business", slug: "business-acquisition-loans" },
-      { icon: FileText, label: "SBA Loan for Franchise", desc: "Franchise-approved SBA financing", slug: "sba-loan-for-franchise" },
       { icon: Sparkles, label: "Startup Business Loans", desc: "Funding for new Austin ventures", slug: "startup-business-loans" },
-      { icon: HandCoins, label: "Women-Owned Business Funding", desc: "Capital for women-owned businesses", slug: "women-owned-business-funding" },
-      { icon: ShieldCheck, label: "SBA Express for Veterans", desc: "Fast-track for veteran owners", slug: "sba-express-loan-for-veterans" },
-      { icon: HandCoins, label: "SBA Loan for Daycare", desc: "Childcare facility financing", slug: "sba-loan-for-daycare" },
     ],
   },
   {
     heading: "Equipment & Receivables",
     items: [
-      { icon: Wrench, label: "Equipment Financing", desc: "Finance machinery, vehicles & tools", slug: "equipment-financing" },
       { icon: Truck, label: "Trucking Business Loans", desc: "Owner-operators to fleet expansion", slug: "trucking-business-loans" },
       { icon: Hammer, label: "Commercial Construction Loan", desc: "Ground-up & renovation projects", slug: "commercial-construction-loan" },
       { icon: Receipt, label: "Invoice Factoring", desc: "Turn invoices into cash today", slug: "invoice-factoring" },
       { icon: Receipt, label: "Accounts Receivable Financing", desc: "Revolving line against open A/R", slug: "accounts-receivable-financing" },
-      { icon: Factory, label: "Manufacturing Equipment Financing", desc: "CNC, packaging & production lines", slug: "manufacturing-equipment-financing" },
-      { icon: Tractor, label: "Agriculture Equipment Financing", desc: "Tractors, harvesters & implements", slug: "agriculture-equipment-financing" },
-      { icon: Leaf, label: "Landscaping Equipment Financing", desc: "Mowers, trucks and trailers", slug: "landscaping-equipment-financing" },
     ],
   },
 ];
@@ -262,7 +262,6 @@ const INDUSTRY_GROUPS: {
       { icon: Stethoscope, label: "Medical Practice Loans", desc: "Funding for clinics & physician groups", slug: "medical-practice-loans" },
       { icon: Smile, label: "Dental Practice Loans", desc: "Equipment, expansion and acquisition", slug: "dental-practice-loans" },
       { icon: Briefcase, label: "Professional Services", desc: "Law, accounting, consulting firms", href: "/industry/professional-services" },
-      { icon: HandCoins, label: "SBA Loan for Daycare", desc: "Childcare facility financing", slug: "sba-loan-for-daycare" },
     ],
   },
   {
@@ -280,19 +279,9 @@ const INDUSTRY_GROUPS: {
     heading: "Trades, Auto & Agriculture",
     items: [
       { icon: Hammer, label: "Commercial Construction Loan", desc: "Ground-up and renovation projects", slug: "commercial-construction-loan" },
-      { icon: Leaf, label: "Landscaping Equipment Financing", desc: "Mowers, trucks and trailers", slug: "landscaping-equipment-financing" },
       { icon: Car, label: "Auto Repair Shop Financing", desc: "Bays, lifts and diagnostics", slug: "auto-repair-shop-financing" },
-      { icon: Tractor, label: "Agriculture Equipment Financing", desc: "Tractors and farm machinery", slug: "agriculture-equipment-financing" },
       { icon: Tractor, label: "Farm Credit Financing", desc: "Operating lines for farms", slug: "farm-credit-financing" },
       { icon: Globe, label: "Ecommerce Business Funding", desc: "Inventory and ad spend capital", slug: "ecommerce-business-funding" },
-    ],
-  },
-  {
-    heading: "Specialty & Brokers",
-    items: [
-      { icon: MapPin, label: "Business Lenders Near Me", desc: "Local lender access for Austin", slug: "business-lenders-near-me" },
-      { icon: Briefcase, label: "Business Loan Broker", desc: "We shop our network for you", slug: "business-loan-broker" },
-      { icon: Building2, label: "Commercial Loan Broker", desc: "Brokered CRE & business deals", slug: "commercial-loan-broker" },
     ],
   },
 ];
@@ -392,9 +381,6 @@ export function Header() {
         <a href="/" className="flex items-center gap-2 font-semibold">
           <img src={siteLogoUrl} alt={SITE_CONFIG.name} className="h-9 w-auto" />
           <span className="sr-only">{SITE_CONFIG.name}</span>
-          <span className="ml-2 hidden rounded-full border border-border bg-secondary px-2 py-0.5 text-xs text-muted-foreground sm:inline">
-            {CITY_STATE}
-          </span>
         </a>
 
         {/* Desktop nav */}
@@ -1602,16 +1588,16 @@ function HowItWorks() {
 /* ---------------- Industries (Art Deco tiles + monstera accents) ---------------- */
 function Industries() {
   const inds = [
-    { icon: Home,             label: "Real Estate",         slug: "real-estate",          micro: "CRE · 1031 · Bridge" },
-    { icon: UtensilsCrossed,  label: "Hospitality",         slug: "restaurants",          micro: "Hotels · Restaurants" },
-    { icon: Stethoscope,      label: "Healthcare",          slug: "healthcare",           micro: "Med-spa · Dental · MD" },
-    { icon: Briefcase,        label: "Professional",        slug: "professional-services",micro: "Law · Accounting" },
-    { icon: Truck,            label: "Logistics",           slug: "transportation",       micro: "SH-130 · ABIA" },
-    { icon: Building2,        label: "Construction",        slug: "construction",         micro: "GC · Subs · Yards" },
-    { icon: ShoppingBag,      label: "Retail & Luxury",     slug: "retail",               micro: "SoCo · Domain" },
-    { icon: Factory,          label: "Manufacturing",       slug: "manufacturing",        micro: "SH-130 · Taylor" },
-    { icon: Cpu,              label: "Technology",          slug: "technology",           micro: "SaaS · Fintech" },
-    { icon: Globe,            label: "E-Commerce",          slug: "e-commerce",           micro: "DTC · Cross-border" },
+    { icon: Landmark,         label: "Real Estate",         slug: "real-estate",          micro: "CRE · 1031 · Bridge" },
+    { icon: Hotel,            label: "Hospitality",         slug: "restaurants",          micro: "Hotels · Restaurants" },
+    { icon: HeartPulse,       label: "Healthcare",          slug: "healthcare",           micro: "Med-spa · Dental · MD" },
+    { icon: Scale,            label: "Professional",        slug: "professional-services",micro: "Law · Accounting" },
+    { icon: Package,          label: "Logistics",           slug: "transportation",       micro: "SH-130 · ABIA" },
+    { icon: HardHat,          label: "Construction",        slug: "construction",         micro: "GC · Subs · Yards" },
+    { icon: Gem,              label: "Retail & Luxury",     slug: "retail",               micro: "SoCo · Domain" },
+    { icon: Cog,              label: "Manufacturing",       slug: "manufacturing",        micro: "SH-130 · Taylor" },
+    { icon: Code2,            label: "Technology",          slug: "technology",           micro: "SaaS · Fintech" },
+    { icon: ShoppingCart,     label: "E-Commerce",          slug: "e-commerce",           micro: "DTC · Cross-border" },
   ];
   const [feat1, feat2, ...rest] = inds;
   return (
@@ -2203,7 +2189,7 @@ export function Footer() {
           links={[
             { label: "SBA Loans", pillar: "sba-loans" },
             { label: "Business Line of Credit", pillar: "business-line-of-credit" },
-            { label: "Equipment Financing", pillar: "equipment-financing" },
+            { label: "Short-Term Business Loans", pillar: "short-term-business-loans" },
             { label: "Working Capital Loans", pillar: "working-capital-loans" },
             { label: "Merchant Cash Advance", pillar: "merchant-cash-advance" },
             { label: "Invoice Factoring", pillar: "invoice-factoring" },

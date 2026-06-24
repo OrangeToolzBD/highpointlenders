@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, CheckCircle2, MapPin, Phone, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, MapPin, Phone, ShieldCheck, Sparkles, Star, TrendingUp, Clock } from "lucide-react";
 import { Header, Footer } from "./index";
 import { Button } from "@/components/ui/button";
 import { getPillar, PILLARS, type Pillar } from "@/lib/pillars-data";
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/pillar/$slug")({
     const p = getPillar(params.slug);
     const title = p ? `${p.title} in Austin, TX` : "Loan Program";
     const description =
-      p?.description ?? "Austin business financing programs from Austin Capital.";
+      p?.description ?? "Austin business financing programs from Highpoint Lenders.";
     const path = `/pillar/${params.slug}`;
     return buildHead({
       title,
@@ -72,17 +72,20 @@ function PillarPage() {
 
         <section className="relative overflow-hidden border-b border-border/60">
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full opacity-20 blur-3xl" style={{ background: "var(--gradient-primary)" }} />
+          <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full opacity-10 blur-3xl" style={{ background: "var(--gradient-primary)" }} />
           <div className="mx-auto max-w-4xl px-6 py-20">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-              <Sparkles className="h-3.5 w-3.5 text-[color:var(--brand-blue)]" />
-              Austin, TX · {pillar.kind === "money" ? "Money pillar" : "Vertical pillar"}
+            <div className="border-l-2 border-[color:var(--brand-blue)]/40 pl-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
+                <Sparkles className="h-3.5 w-3.5 text-[color:var(--brand-blue)]" />
+                Austin, TX · {pillar.kind === "money" ? "Money pillar" : "Vertical pillar"}
+              </div>
+              <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-5xl">{pillar.title} in Austin, TX</h1>
+              <p className="mt-3 text-xl font-medium text-[color:var(--brand-blue)]">{pillar.tagline}</p>
+              <p className="mt-5 text-base text-muted-foreground md:text-lg">{pillar.description}</p>
             </div>
-            <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-5xl">{pillar.title} in Austin, TX</h1>
-            <p className="mt-3 text-xl font-medium text-[color:var(--brand-blue)]">{pillar.tagline}</p>
-            <p className="mt-5 text-base text-muted-foreground md:text-lg">{pillar.description}</p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {pillar.bullets.map((b: string) => (
-                <li key={b} className="flex items-start gap-3 text-sm">
+                <li key={b} className="flex items-start gap-3 rounded-xl border border-border/60 bg-card/40 p-3 text-sm">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 flex-none text-[color:var(--brand-blue)]" />
                   <span>{b}</span>
                 </li>
@@ -102,7 +105,45 @@ function PillarPage() {
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[color:var(--brand-blue)]" /> Soft credit pull only</span>
               <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[color:var(--brand-blue)]" /> 24-hour decisions</span>
-              <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[color:var(--brand-blue)]" /> California licensed lenders</span>
+              <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[color:var(--brand-blue)]" /> Texas licensed lenders</span>
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-3 border-t border-border/60 pt-8 sm:grid-cols-4">
+              <div className="flex items-start gap-3">
+                <div className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-[color:var(--brand-blue)]/10 text-[color:var(--brand-blue)]">
+                  <Star className="h-4 w-4" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold leading-tight">{SITE_CONFIG.stats.reviewsRating}★</div>
+                  <div className="text-xs text-muted-foreground">{SITE_CONFIG.stats.reviewsCount} reviews</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-[color:var(--brand-blue)]/10 text-[color:var(--brand-blue)]">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold leading-tight">{SITE_CONFIG.stats.businessesFunded}</div>
+                  <div className="text-xs text-muted-foreground">Businesses funded</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-[color:var(--brand-blue)]/10 text-[color:var(--brand-blue)]">
+                  <TrendingUp className="h-4 w-4" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold leading-tight">{SITE_CONFIG.stats.loansFacilitated}</div>
+                  <div className="text-xs text-muted-foreground">Loans facilitated</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="inline-flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-[color:var(--brand-blue)]/10 text-[color:var(--brand-blue)]">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <div>
+                  <div className="text-lg font-bold leading-tight">{SITE_CONFIG.stats.fastestFundingHours}</div>
+                  <div className="text-xs text-muted-foreground">Fastest funding</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -118,7 +159,7 @@ function PillarPage() {
             </p>
           ))}
           <p className="mt-4 text-muted-foreground">
-            Every Austin Capital application runs through Texas-licensed lenders. We do one
+            Every Highpoint Lenders application runs through Texas-licensed lenders. We do one
             soft credit pull, present the matching offers, and let you choose. No fee until close.
           </p>
         </section>

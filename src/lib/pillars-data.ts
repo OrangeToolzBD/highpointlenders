@@ -1,4 +1,4 @@
-// Austin Capital - SEO pillar pages for Austin, TX.
+// Highpoint Lenders - SEO pillar pages for Austin, TX.
 // 18 Money Pillars + 20 Vertical Pillars = 38 total.
 
 export type PillarKind = "money" | "vertical";
@@ -151,56 +151,6 @@ export const MONEY_PILLARS: Pillar[] = [
     bullets: ["$50K-$5M", "No equity dilution", "Flexible repayment"],
     highlight: "Pay as you earn",
   },
-  {
-    slug: "same-day-business-loans",
-    title: "Same Day Business Loans",
-    kind: "money",
-    tagline: "Get funded in as little as 24 hours",
-    description:
-      "When timing matters: same-day pre-approval and 24-hour funding for qualified Austin businesses.",
-    bullets: ["Decision in minutes", "Funded same day", "Soft pull only"],
-    highlight: "< 24 hrs",
-  },
-  {
-    slug: "business-lenders-near-me",
-    title: "Business Lenders Near Me",
-    kind: "money",
-    tagline: "Local lender access for Austin owners",
-    description:
-      "Skip the dial-the-bank routine. Get matched with 75+ vetted regional and national lenders that fund Austin businesses - Texas-licensed specialists who know the Central Texas market.",
-    bullets: ["75+ lender network", "Texas SBA Preferred banks", "Central Texas underwriting"],
-    highlight: "60-second match",
-  },
-  {
-    slug: "business-loan-broker",
-    title: "Business Loan Broker",
-    kind: "money",
-    tagline: "We shop our network for you",
-    description:
-      "Independent loan advisors negotiating term sheets across 75+ lenders, then presenting the best two or three options for your Austin business.",
-    bullets: ["No fee until close", "Multi-lender negotiation", "One application"],
-    highlight: "Compare offers",
-  },
-  {
-    slug: "commercial-loan-broker",
-    title: "Commercial Loan Broker",
-    kind: "money",
-    tagline: "Brokered commercial real estate & business deals",
-    description:
-      "From Downtown CRE and Domain mixed-use to working capital, our commercial brokerage works through SBA, conventional, bridge and private lenders to find the right structure for Austin real estate.",
-    bullets: ["SBA & conventional CRE", "Bridge & permanent debt", "$250K-$25M"],
-    highlight: "Multi-channel",
-  },
-  {
-    slug: "equipment-financing",
-    title: "Equipment Financing",
-    kind: "money",
-    tagline: "Finance machinery, vehicles & tools",
-    description:
-      "Use the equipment itself as collateral, preserving working capital for the things financing can't buy. Sized for Austin restaurant kitchens, Hill Country aesthetic practices, and SH-130 logistics fleets.",
-    bullets: ["100% financing available", "Section 179 eligible", "Approvals in 24-48 hrs"],
-    highlight: "From 6.99%",
-  },
 ];
 
 export const VERTICAL_PILLARS: Pillar[] = [
@@ -338,76 +288,6 @@ export const VERTICAL_PILLARS: Pillar[] = [
       "Outfit the floor, expand into recovery and group fitness, or refinance higher-rate equipment leases - Austin is one of the most active fitness markets in the country.",
     bullets: ["Cardio + strength bundles", "Recovery & spa add-ons", "Refinance options"],
     highlight: "Up to $500K",
-  },
-  {
-    slug: "manufacturing-equipment-financing",
-    title: "Manufacturing Equipment Financing",
-    kind: "vertical",
-    tagline: "CNC, fabrication & production lines",
-    description:
-      "Finance individual machines or entire production cells with structures aligned to ROI timelines, including soft costs. Active across the SH-130 industrial corridor and the Samsung/Tesla supplier base.",
-    bullets: ["New & used equipment", "Soft costs included", "Step payment options"],
-    highlight: "Up to $10M",
-  },
-  {
-    slug: "agriculture-equipment-financing",
-    title: "Agriculture Equipment Financing",
-    kind: "vertical",
-    tagline: "Tractors, implements & ranch equipment",
-    description:
-      "Seasonal-friendly structures tailored to ranch and farm cash flow - Hill Country cattle operations, vineyards, peach orchards and specialty Texas ag.",
-    bullets: ["Seasonal payment options", "New & used equipment", "Trade-in friendly"],
-    highlight: "Same-week funding",
-  },
-  {
-    slug: "landscaping-equipment-financing",
-    title: "Landscaping Equipment Financing",
-    kind: "vertical",
-    tagline: "Mowers, trucks and trailers",
-    description:
-      "Build out your Austin landscaping fleet with financing built for year-round operations - Texas Hill Country crews and HOA-heavy suburbs keep equipment running 12 months a year.",
-    bullets: ["Bundle multiple units", "Skip-payment options", "Soft credit pulls"],
-    highlight: "Pre-qualify in minutes",
-  },
-  {
-    slug: "sba-loan-for-daycare",
-    title: "SBA Loan For Daycare",
-    kind: "vertical",
-    tagline: "Childcare facility financing",
-    description:
-      "SBA 7(a) and 504 loans for licensed childcare operators across the Austin metro - real estate, renovation, equipment and working capital in one package.",
-    bullets: ["10% down on real estate", "25-year amortization", "Low fixed rates"],
-    highlight: "Up to $5M",
-  },
-  {
-    slug: "sba-loan-for-franchise",
-    title: "SBA Loan For Franchise",
-    kind: "vertical",
-    tagline: "Franchise-approved SBA financing",
-    description:
-      "Long-term fixed financing for Austin franchise owners. Leverage SBA terms to acquire, expand or remodel approved concepts across Travis, Williamson and Hays counties.",
-    bullets: ["Up to 10-year terms", "10% down typical", "Low fixed rates"],
-    highlight: "Up to $5M",
-  },
-  {
-    slug: "sba-express-loan-for-veterans",
-    title: "SBA Express Loan For Veterans",
-    kind: "vertical",
-    tagline: "Fast-track funding for veteran owners",
-    description:
-      "Expedited SBA Express loans for veteran-owned businesses with reduced fees and 36-hour SBA turnaround - Texas ranks #1 nationally for veteran-owned business density.",
-    bullets: ["Up to $500K", "Reduced SBA fees for veterans", "36-hour SBA turnaround"],
-    highlight: "Veteran-friendly",
-  },
-  {
-    slug: "women-owned-business-funding",
-    title: "Women Owned Business Funding",
-    kind: "vertical",
-    tagline: "Capital for women-owned businesses",
-    description:
-      "Working capital, SBA and microloan programs tailored to certified women-owned businesses across Austin - one of the strongest women-founder ecosystems in Texas.",
-    bullets: ["SBA & microloans", "WBE-friendly underwriting", "$5K-$5M"],
-    highlight: "Equity-free",
   },
 ];
 

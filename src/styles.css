@@ -63,7 +63,7 @@
 
 :root {
   --radius: 0.625rem;
-  /* Austin Capital - Modern Texas palette:
+  /* Highpoint Lenders - Modern Texas palette:
      charcoal foreground + burnt amber accent + warm limestone cream + Texas-dust rust.
      Evokes downtown skyline at dusk, Hill Country sunset, cedar and longhorn leather. */
   --background: oklch(0.99 0.005 75);            /* near-white with warm cream undertone */

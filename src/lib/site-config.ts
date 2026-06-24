@@ -4,7 +4,7 @@
 
 const RAW_SITE_URL =
   (import.meta.env?.VITE_SITE_URL as string | undefined) ??
-  "https://austincapitalfunding.com";
+  "https://highpointlenders.com";
 
 export const SITE_URL: string = RAW_SITE_URL.replace(/\/+$/, "");
 
@@ -15,14 +15,14 @@ export const SITE_CONFIG = {
   url: SITE_URL,
   indexable: INDEXABLE,
 
-  name: "Austin Capital",
-  legalName: "Austin Capital Group, LLC",
+  name: "Highpoint Lenders",
+  legalName: "Highpoint Lenders Group, LLC",
   tagline: "Texas-built capital for Austin operators",
   defaultDescription:
     "Business funding in Austin, TX. Compare SBA loans, equipment financing, working capital, and commercial real estate loans from trusted Texas lenders. Built for Austin's tech, hospitality, and Hill Country economy. Pre-qualify in minutes with no impact on credit.",
 
-  phone: "(512) 555-0118",
-  phoneHref: "tel:+15125550118",
+  phone: "(737) 775-7311",
+  phoneHref: "tel:+17377757311",
   email: "",
 
   hasPublicOffice: true,
@@ -55,10 +55,10 @@ export const SITE_CONFIG = {
   areasServed: ["Austin, TX", "Travis County, TX", "Williamson County, TX", "Central Texas Hill Country"],
 
   social: {
-    googleBusinessProfile: "https://www.google.com/maps/place/Austin+Capital",
-    linkedin: "https://www.linkedin.com/company/austin-capital",
-    facebook: "https://www.facebook.com/austincapital",
-    twitter: "https://twitter.com/AustinCapital",
+    googleBusinessProfile: "https://www.google.com/maps/place/Highpoint+Lenders",
+    linkedin: "https://www.linkedin.com/company/highpoint-lenders",
+    facebook: "https://www.facebook.com/highpointlenders",
+    twitter: "https://twitter.com/HighpointLenders",
   },
 
   defaultOgImage: "/og-default.svg",
@@ -77,7 +77,7 @@ export const SITE_CONFIG = {
     name: "Cole Brennan",
     title: "Head of Commercial Lending",
     credentials: "MBA McCombs (UT Austin), 12+ years SBA, CRE and Texas tech financing",
-    profileUrl: "https://www.linkedin.com/in/cole-brennan-austincapital",
+    profileUrl: "https://www.linkedin.com/in/cole-brennan-highpointlenders",
   },
 
   featuredStat: {

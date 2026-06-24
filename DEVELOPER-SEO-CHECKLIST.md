@@ -40,7 +40,7 @@ Open the page → right-click → **View Page Source** (not "Inspect"). Search f
 **What was actually done:**
 - Created `src/lib/site-config.ts` with `SITE_URL`, `INDEXABLE`, `SITE_CONFIG`, `absoluteUrl()` helper.
 - Created `.env.example` documenting `VITE_SITE_URL` and `VITE_INDEXABLE`.
-- Default `SITE_URL = https://austincapitalfunding.com`.
+- Default `SITE_URL = https://highpointlenders.com`.
 - Verified there were already zero `lovable.app` URLs in the codebase.
 
 ---
@@ -120,7 +120,7 @@ View Source on a few pages → each has a **different** `<title>` and `<meta nam
 - Rewrote `head()` on all 8 routes to use `buildHead`. All titles ≤60 chars.
 - Side fixes during refactor:
   - Removed `keywords` meta tag from `index.tsx` (Item #14 will CI-enforce).
-  - Fixed wrong brand leak "California Capital" → "Austin Capital" in industry pages.
+  - Fixed wrong brand leak "California Capital" → "Highpoint Lenders" in industry pages.
   - Removed Lovable defaults (`author: Lovable`, `twitter:site: @Lovable`).
   - Unified previously-different `title` vs `og:title` and `description` vs `og:description`.
   - All `og:url` values now absolute.

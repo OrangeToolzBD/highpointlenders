@@ -39,14 +39,11 @@ function AustinHub() {
           style={{ backgroundImage: "var(--gradient-hero)" }}
         >
           <div className="mx-auto max-w-7xl px-6">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium backdrop-blur">
-              <MapPin className="h-3.5 w-3.5" /> Austin, TX · 10 neighborhoods · 38 loan programs
-            </span>
-            <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
               Austin Business Loans
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-white/80">
-              The complete Austin Capital directory for Austin, TX: every loan program we
+              The complete Highpoint Lenders directory for Austin, TX: every loan program we
               broker, mapped to every neighborhood and adjacent city we serve.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
