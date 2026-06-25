@@ -1,0 +1,54 @@
+name: Build and Deploy to R2
+
+on:
+  push:
+    branches: [production]
+
+concurrency:
+  group: r2-deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-and-upload:
+    runs-on: [self-hosted, linux, vite-r2]
+    timeout-minutes: 30
+    env:
+      VITE_SITE_URL: ${{ vars.VITE_SITE_URL }}
+      VITE_INDEXABLE: ${{ vars.VITE_INDEXABLE }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache bun install
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('**/bun.lockb', '**/bun.lock') }}
+          restore-keys: bun-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Pre-build webhook
+        if: ${{ vars.PREBUILD_WEBHOOK_URL != '' }}
+        run: curl -fsS -X POST "${{ vars.PREBUILD_WEBHOOK_URL }}"
+
+      - name: Build and upload to R2
+        run: |
+          chmod +x ./build-upload-s3.sh
+          ./build-upload-s3.sh "${{ vars.R2_BUCKET }}" "${{ vars.R2_PREFIX }}" "${VITE_SITE_URL}"
+
+      - name: Post-build webhook
+        if: ${{ vars.POSTBUILD_WEBHOOK_URL != '' }}
+        run: curl -fsS -X POST "${{ vars.POSTBUILD_WEBHOOK_URL }}"
+
+      - name: Deploy webhook
+        if: ${{ vars.DEPLOY_WEBHOOK_URL != '' }}
+        env:
+          DEPLOY_WEBHOOK_URL: ${{ vars.DEPLOY_WEBHOOK_URL }}
+          DEPLOY_WEBHOOK_SECRET: ${{ secrets.DEPLOY_WEBHOOK_SECRET }}
+          R2_PREFIX: ${{ vars.R2_PREFIX }}
+        run: |
+          curl -fsS -X POST "$DEPLOY_WEBHOOK_URL" \
+            -H "authorization: Bearer $DEPLOY_WEBHOOK_SECRET" \
+            -H "content-type: application/json" \
+            -d "{\"domain\":\"${R2_PREFIX}\"}"
