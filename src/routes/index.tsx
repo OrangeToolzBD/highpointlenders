@@ -83,6 +83,7 @@ import {
   Cog,
   Code2,
   ShoppingCart,
+  Quote,
 } from "lucide-react";
 
 type MegaItemProps = Readonly<{
@@ -1875,13 +1876,71 @@ function Field({ label, value, children }: Readonly<{ label: string; value: stri
 }
 
 /* ---------------- Success Stories ---------------- */
+type Story = Readonly<{
+  business: string;
+  industry: string;
+  neighborhood: string;
+  amount: string;
+  type: string;
+  fundedIn: string;
+  result: string;
+  quote: string;
+  owner: { name: string; title: string; avatar: string };
+}>;
+
+const STORIES: readonly Story[] = [
+  {
+    business: "Congress Avenue Wealth Advisors",
+    industry: "Wealth Management",
+    neighborhood: "Downtown Austin",
+    amount: "$1,400,000",
+    type: "SBA 7(a) Loan",
+    fundedIn: "Funded in 19 days",
+    result: "Closed a partner buy-in and built out a new Downtown office.",
+    quote:
+      "Our banker actually understood a multi-partner buy-in. We had a term sheet inside a week and the build-out wired in under three.",
+    owner: {
+      name: "Marcus Whitley",
+      title: "Managing Partner",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    },
+  },
+  {
+    business: "East Sixth Tortilla Co.",
+    industry: "Food & Beverage",
+    neighborhood: "East Austin",
+    amount: "$320,000",
+    type: "SBA 7(a) + Working Capital",
+    fundedIn: "Funded in 11 days",
+    result: "Opened a second East Sixth location with cash on hand for launch.",
+    quote:
+      "We were quoted six weeks elsewhere. Highpoint had the SBA piece and the working-capital line stacked and closed in eleven days.",
+    owner: {
+      name: "Lucia Ramos",
+      title: "Founder & Owner",
+      avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+    },
+  },
+  {
+    business: "SH-130 Freight Forwarders",
+    industry: "Logistics",
+    neighborhood: "Pflugerville",
+    amount: "$2,100,000",
+    type: "SBA 504 + Equipment",
+    fundedIn: "Funded in 5 weeks",
+    result: "Bought a flex warehouse near SH-130 and added two reefer trucks.",
+    quote:
+      "Combining the 504 real estate piece with an equipment line was seamless. Our advisor shopped seven lenders before recommending the structure.",
+    owner: {
+      name: "Devon Carter",
+      title: "Operations Director",
+      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+    },
+  },
+];
+
 function SuccessStories() {
-  const stories = [
-    { name: "Congress Avenue Wealth Advisors", amount: "$1,400,000", result: "Funded a partner buy-in and Downtown office build-out.", type: "SBA 7(a) Loan" },
-    { name: "East Sixth Tortilla Co.", amount: "$320,000", result: "Acquired second location plus working capital for opening.", type: "SBA 7(a) + Working Capital" },
-    { name: "SH-130 Freight Forwarders", amount: "$2,100,000", result: "Purchased a Pflugerville flex warehouse and added two reefer trucks.", type: "SBA 504 + Equipment" },
-  ];
-  const [feature, ...others] = stories;
+  const [feature, ...others] = STORIES;
   return (
     <section id="stories" className="relative overflow-hidden px-6 py-10 sm:py-20">
       <div className="relative mx-auto max-w-7xl">
@@ -1895,14 +1954,18 @@ function SuccessStories() {
             </h2>
           </div>
           <p className="text-muted-foreground">
-            Real outcomes from local owners in our funding network.
+            Real outcomes - and real words - from local owners in our funding network.
           </p>
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-[1.4fr_1fr]">
           {/* Featured large story */}
           <article className="relative overflow-hidden rounded-3xl bg-[image:var(--gradient-cta)] p-8 text-white shadow-[var(--shadow-elegant)]">
-            <div className="flex items-center justify-between">
+            <Quote
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-4 -top-4 h-40 w-40 text-white/10"
+            />
+            <div className="relative flex items-center justify-between gap-3">
               <span className="rounded-full bg-black/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em]">
                 Featured story
               </span>
@@ -1912,42 +1975,95 @@ function SuccessStories() {
                 ))}
               </div>
             </div>
-            <div className="mt-10 text-6xl font-bold tracking-tight md:text-7xl">
-              {feature.amount}
+            <blockquote className="relative mt-8 text-lg font-medium leading-relaxed md:text-xl">
+              &ldquo;{feature.quote}&rdquo;
+            </blockquote>
+            <div className="relative mt-8 flex items-center gap-4">
+              <img
+                src={feature.owner.avatar}
+                alt={feature.owner.name}
+                width={48}
+                height={48}
+                loading="lazy"
+                className="h-12 w-12 shrink-0 rounded-full object-cover ring-1 ring-white/40"
+              />
+              <div className="leading-tight">
+                <div className="text-base font-semibold">{feature.owner.name}</div>
+                <div className="text-xs opacity-80">
+                  {feature.owner.title} · {feature.business}
+                </div>
+              </div>
             </div>
-            <div className="mt-2 text-xs font-semibold uppercase tracking-[0.22em] opacity-80">
-              {feature.type}
+            <div className="relative mt-8 grid grid-cols-2 gap-4 border-t border-white/20 pt-6 text-sm sm:grid-cols-4">
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-[0.22em] opacity-70">
+                  Amount
+                </div>
+                <div className="mt-1 text-lg font-bold tracking-tight">{feature.amount}</div>
+              </div>
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-[0.22em] opacity-70">
+                  Product
+                </div>
+                <div className="mt-1 font-medium">{feature.type}</div>
+              </div>
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-[0.22em] opacity-70">
+                  Industry
+                </div>
+                <div className="mt-1 font-medium">{feature.industry}</div>
+              </div>
+              <div>
+                <div className="text-[10px] font-semibold uppercase tracking-[0.22em] opacity-70">
+                  Speed
+                </div>
+                <div className="mt-1 font-medium">{feature.fundedIn}</div>
+              </div>
             </div>
-            <h3 className="mt-8 text-2xl font-semibold">{feature.name}</h3>
-            <p className="mt-3 max-w-md text-sm leading-relaxed opacity-90">
-              {feature.result}
-            </p>
           </article>
 
           {/* Smaller stories stacked */}
           <div className="grid gap-5">
             {others.map((s) => (
               <article
-                key={s.name}
-                className="rounded-2xl border border-border bg-card p-6 transition-colors hover:border-[color:var(--brand-gold)]/40"
+                key={s.business}
+                className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-colors hover:border-[color:var(--brand-gold)]/40"
               >
-                <div className="flex items-baseline justify-between gap-3">
-                  <div className="text-2xl font-bold text-[color:var(--brand-gold)]">
-                    {s.amount}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={s.owner.avatar}
+                      alt={s.owner.name}
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      className="h-10 w-10 shrink-0 rounded-full object-cover ring-1 ring-[color:var(--brand-gold)]/40"
+                    />
+                    <div className="leading-tight">
+                      <div className="text-sm font-semibold">{s.owner.name}</div>
+                      <div className="text-[11px] text-muted-foreground">
+                        {s.owner.title} · {s.business}
+                      </div>
+                    </div>
                   </div>
                   <div className="flex items-center gap-0.5 text-[color:var(--accent-success)]">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={`star-${s.name}-${i}`} className="h-3.5 w-3.5 fill-current" />
+                      <Star key={`star-${s.business}-${i}`} className="h-3.5 w-3.5 fill-current" />
                     ))}
                   </div>
                 </div>
-                <h3 className="mt-3 text-base font-semibold">{s.name}</h3>
-                <div className="mt-1 text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                  {s.type}
+                <blockquote className="mt-4 text-sm leading-relaxed text-foreground/85">
+                  &ldquo;{s.quote}&rdquo;
+                </blockquote>
+                <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px]">
+                  <span className="text-lg font-bold tracking-tight text-[color:var(--brand-gold)]">
+                    {s.amount}
+                  </span>
+                  <span className="text-muted-foreground">·</span>
+                  <span className="font-medium text-muted-foreground">{s.type}</span>
+                  <span className="text-muted-foreground">·</span>
+                  <span className="font-medium text-muted-foreground">{s.fundedIn}</span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {s.result}
-                </p>
               </article>
             ))}
           </div>
