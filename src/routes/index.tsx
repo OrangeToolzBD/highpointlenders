@@ -377,9 +377,9 @@ export function Header() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-white/90 text-foreground backdrop-blur supports-[backdrop-filter]:bg-white/75">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:px-6">
-        <a href="/" className="flex items-center gap-2 font-semibold">
-          <img src={siteLogoUrl} alt={SITE_CONFIG.name} className="h-9 w-auto" />
+      <div className="mx-auto flex h-[78px] max-w-7xl items-center justify-between gap-4 px-4 md:px-6">
+        <a href="/" className="-ml-2 flex items-center font-semibold">
+          <img src={siteLogoUrl} alt={SITE_CONFIG.name} className="-my-2 h-[88px] w-auto" />
           <span className="sr-only">{SITE_CONFIG.name}</span>
         </a>
 
@@ -387,7 +387,7 @@ export function Header() {
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Loan Products</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Financing</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="light w-[min(900px,calc(100vw-2rem))] max-h-[calc(100vh-5rem)] overflow-auto bg-popover p-6 text-popover-foreground">
                   <div className="grid grid-cols-3 gap-6 min-w-[852px]">
@@ -422,7 +422,7 @@ export function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Industries</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Sectors</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="light w-[min(1100px,calc(100vw-2rem))] max-h-[calc(100vh-5rem)] overflow-auto bg-popover p-6 text-popover-foreground">
                   <div className="grid grid-cols-4 gap-6 min-w-[1052px]">
@@ -444,7 +444,7 @@ export function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Service Areas</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Locations</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="light w-[min(760px,calc(100vw-2rem))] max-h-[calc(100vh-5rem)] overflow-auto bg-popover p-6 text-popover-foreground">
                   <div className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
@@ -480,7 +480,7 @@ export function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Resources</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="bg-transparent hover:bg-secondary focus:bg-secondary data-[state=open]:bg-secondary">Insights</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="light w-[min(520px,calc(100vw-2rem))] max-h-[calc(100vh-5rem)] overflow-auto bg-popover p-4 text-popover-foreground">
                   <div className="grid gap-1">
@@ -494,7 +494,7 @@ export function Header() {
 
             <NavigationMenuItem>
               <NavigationMenuLink asChild className={`${navigationMenuTriggerStyle()} bg-transparent hover:bg-white/10 focus:bg-white/10`}>
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact">Reach Us</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -530,7 +530,7 @@ export function Header() {
               <div className="px-3 py-3">
                 <Accordion type="multiple" className="w-full">
                   <AccordionItem value="loans">
-                    <AccordionTrigger className="px-2 text-base font-semibold">Loan Products</AccordionTrigger>
+                    <AccordionTrigger className="px-2 text-base font-semibold">Financing</AccordionTrigger>
                     <AccordionContent>
                       {LOAN_GROUPS.map((g) => (
                         <div key={g.heading} className="mb-3">
@@ -563,7 +563,7 @@ export function Header() {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="ind">
-                    <AccordionTrigger className="px-2 text-base font-semibold">Industries</AccordionTrigger>
+                    <AccordionTrigger className="px-2 text-base font-semibold">Sectors</AccordionTrigger>
                     <AccordionContent>
                       {INDUSTRY_GROUPS.map((g) => (
                         <div key={g.heading} className="mb-3">
@@ -596,7 +596,7 @@ export function Header() {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="areas">
-                    <AccordionTrigger className="px-2 text-base font-semibold">Service Areas</AccordionTrigger>
+                    <AccordionTrigger className="px-2 text-base font-semibold">Locations</AccordionTrigger>
                     <AccordionContent>
                       {SERVICE_AREAS.map((sa) => (
                         <div key={sa.region} className="mb-3">
@@ -621,7 +621,7 @@ export function Header() {
                     </AccordionContent>
                   </AccordionItem>
                   <AccordionItem value="res">
-                    <AccordionTrigger className="px-2 text-base font-semibold">Resources</AccordionTrigger>
+                    <AccordionTrigger className="px-2 text-base font-semibold">Insights</AccordionTrigger>
                     <AccordionContent>
                       <ul>
                         {[
@@ -681,7 +681,7 @@ function Hero() {
       />
       <div
         className="pointer-events-none absolute inset-0"
-        style={{ background: "linear-gradient(180deg, oklch(0.22 0.05 215 / 0.72), oklch(0.16 0.04 215 / 0.88))" }}
+        style={{ background: "linear-gradient(180deg, oklch(0.24 0.05 55 / 0.78), oklch(0.16 0.04 50 / 0.92))" }}
         aria-hidden="true"
       />
       {/* Single subtle sunburst accent + horizon arches */}
@@ -1111,7 +1111,7 @@ function WhyUs() {
       icon: Clock,
       title: "Fast Decisions",
       desc: `Pre-qualify in minutes. Same-day funding available for qualified ${CITY} files.`,
-      stat: "< 48 hrs",
+      stat: "Less than 48 hours",
       statLabel: "Average funding time",
     },
     {
@@ -2154,12 +2154,10 @@ export function Footer() {
     <footer className="border-t border-border bg-[color:var(--brand-sand)] text-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2 font-semibold">
-            <img src={siteLogoUrl} alt={SITE_CONFIG.name} className="h-9 w-auto" />
+          <div className="-ml-2 -mt-2 flex items-center font-semibold">
+            <img src={siteLogoUrl} alt={SITE_CONFIG.name} className="h-[96px] w-auto" />
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">
-            A business funding marketplace serving {CITY_STATE} and the rest of Central Texas.
-          </p>
+          
           <address className="mt-4 not-italic space-y-1 text-sm text-muted-foreground">
             <div className="font-semibold text-foreground">{SITE_CONFIG.name}</div>
             {SITE_CONFIG.hasPublicOffice ? (
@@ -2185,7 +2183,7 @@ export function Footer() {
           </address>
         </div>
         <FooterCol
-          title="Loan Products"
+          title="Financing"
           links={[
             { label: "SBA Loans", pillar: "sba-loans" },
             { label: "Business Line of Credit", pillar: "business-line-of-credit" },
@@ -2196,7 +2194,7 @@ export function Footer() {
           ]}
         />
         <FooterCol
-          title="Industries"
+          title="Sectors"
           links={[
             { label: "Construction", industry: "construction" },
             { label: "Healthcare", industry: "healthcare" },
@@ -2207,7 +2205,7 @@ export function Footer() {
           ]}
         />
         <FooterCol
-          title="Company"
+          title="About Us"
           links={[
             { label: "Apply Now", to: "/apply-now" },
             { label: "Contact", to: "/contact" },
@@ -2220,16 +2218,6 @@ export function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl space-y-3 px-6 py-6 text-xs text-muted-foreground">
-          <p className="text-foreground">
-            <strong>Important disclosures.</strong> {SITE_CONFIG.name} is not a
-            lender. We operate a lender-matching marketplace and earn referral
-            fees when borrowers fund through partners in our network. Loan
-            terms, rates, and approval are decided solely by the lending
-            partner. The information on this site is for general educational
-            purposes only and is not financial, tax, legal, or investment
-            advice. Consult a qualified professional before making borrowing
-            decisions.
-          </p>
           <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
             <p>© {new Date().getFullYear()} {SITE_CONFIG.name}, {CITY_STATE}. All rights reserved.</p>
             <p>
