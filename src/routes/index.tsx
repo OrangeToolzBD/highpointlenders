@@ -411,7 +411,7 @@ export function Header() {
                         Talk to an Austin banker - no obligation.
                       </div>
                     </div>
-                    <Button asChild size="sm" className="bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)]">
+                    <Button asChild size="sm" className="bg-[image:var(--gradient-cta)] text-white">
                       <a href={SITE_CONFIG.phoneHref}>
                         <PhoneCall className="h-4 w-4" /> Call {SITE_CONFIG.phone}
                       </a>
@@ -503,7 +503,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             size="sm"
-            className="hidden bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)] shadow-[var(--shadow-elegant)] hover:opacity-95 sm:inline-flex"
+            className="hidden bg-[image:var(--gradient-cta)] text-white shadow-[var(--shadow-elegant)] hover:opacity-95 sm:inline-flex"
             asChild
           >
             <a href={SITE_CONFIG.phoneHref}>
@@ -644,7 +644,7 @@ export function Header() {
 
                 <div className="mt-4 space-y-2 border-t border-border px-2 pt-4">
                   <SheetClose asChild>
-                    <Button asChild className="w-full bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)]">
+                    <Button asChild className="w-full bg-[image:var(--gradient-cta)] text-white">
                       <a href={SITE_CONFIG.phoneHref}>
                         <PhoneCall className="h-4 w-4" /> Call {SITE_CONFIG.phone}
                       </a>
@@ -743,7 +743,7 @@ function Hero() {
           <Button
             size="lg"
             asChild
-            className="group relative w-full overflow-hidden bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)] shadow-[var(--shadow-glow)] hover:opacity-95 sm:w-auto"
+            className="group relative w-full overflow-hidden bg-[image:var(--gradient-cta)] text-white shadow-[var(--shadow-glow)] hover:opacity-95 sm:w-auto"
           >
             <Link to="/apply-now">
               Get My Loan Options
@@ -1618,7 +1618,7 @@ function Industries() {
           </div>
           <Button
             asChild
-            className="hidden bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)] md:inline-flex"
+            className="hidden bg-[image:var(--gradient-cta)] text-white md:inline-flex"
           >
             <Link to="/austin" className="flex items-center gap-2">
               <span>Browse Austin directory</span>
@@ -1660,7 +1660,7 @@ function Industries() {
           <Link
             to="/industry/$slug"
             params={{ slug: feat2.slug }}
-            className="group relative flex items-center gap-5 overflow-hidden rounded-2xl border border-[color:var(--brand-gold)]/30 bg-[image:var(--gradient-cta)] p-6 text-[color:var(--brand-gold-foreground)] shadow-sm transition-all hover:-translate-y-1 md:col-span-2"
+            className="group relative flex items-center gap-5 overflow-hidden rounded-2xl border border-[color:var(--brand-gold)]/30 bg-[image:var(--gradient-cta)] p-6 text-white shadow-sm transition-all hover:-translate-y-1 md:col-span-2"
           >
             <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-current">
               <feat2.icon className="h-6 w-6" />
@@ -1701,7 +1701,7 @@ function Industries() {
         <div className="mt-10 flex justify-center md:hidden">
           <Button
             asChild
-            className="bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)]"
+            className="bg-[image:var(--gradient-cta)] text-white"
           >
             <Link to="/austin" className="flex items-center gap-2">
               <span>Browse Austin directory</span>
@@ -1848,7 +1848,7 @@ function Calculator() {
             <Button
               size="lg"
               asChild
-              className="mt-7 w-full bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)] shadow-[var(--shadow-glow)]"
+              className="mt-7 w-full bg-[image:var(--gradient-cta)] text-white shadow-[var(--shadow-glow)]"
             >
               <Link to="/apply-now">
                 Get real offers in {CITY} <ArrowRight className="h-4 w-4" />
@@ -1904,7 +1904,7 @@ function SuccessStories() {
 
         <div className="mt-12 grid gap-5 md:grid-cols-[1.4fr_1fr]">
           {/* Featured large story */}
-          <article className="relative overflow-hidden rounded-3xl bg-[image:var(--gradient-cta)] p-8 text-[color:var(--brand-gold-foreground)] shadow-[var(--shadow-elegant)]">
+          <article className="relative overflow-hidden rounded-3xl bg-[image:var(--gradient-cta)] p-8 text-white shadow-[var(--shadow-elegant)]">
             <div className="flex items-center justify-between">
               <span className="rounded-full bg-black/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em]">
                 Featured story
@@ -2105,7 +2105,7 @@ function FinalCTA() {
               <Button
                 size="lg"
                 asChild
-                className="bg-[image:var(--gradient-cta)] text-[color:var(--accent-success-foreground)] shadow-[var(--shadow-glow)]"
+                className="bg-[image:var(--gradient-cta)] text-white shadow-[var(--shadow-glow)]"
               >
                 <Link to="/apply-now">
                   Get my loan options <ArrowRight className="h-4 w-4" />
