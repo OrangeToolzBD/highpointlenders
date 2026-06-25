@@ -282,3 +282,20 @@
     background: var(--brand-rust);
   }
 }
+
+/* FAQ accordion content. Radix sets `animation-name: none` and
+ * `transition-duration: 0s` inline (to prevent mount flash). !important here
+ * lets us animate max-height smoothly. Scoped to #faq so the mobile sheet's
+ * accordion (which has taller content) is unaffected. */
+#faq [data-orientation][role="region"] {
+  overflow: hidden !important;
+  transition: max-height 200ms ease-out, opacity 200ms ease-out !important;
+}
+#faq [data-orientation][role="region"][data-state="closed"] {
+  max-height: 0 !important;
+  opacity: 0 !important;
+}
+#faq [data-orientation][role="region"][data-state="open"] {
+  max-height: 32rem !important;
+  opacity: 1 !important;
+}

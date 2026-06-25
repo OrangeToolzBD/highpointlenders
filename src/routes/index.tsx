@@ -1200,9 +1200,6 @@ function WhyUs() {
             <p className="mt-3 text-sm leading-relaxed text-white/75">
               {hero.desc}
             </p>
-            <div className="mt-8 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--brand-gold)]/15 text-[color:var(--brand-gold)] ring-1 ring-[color:var(--brand-gold)]/40">
-              <hero.icon className="h-5 w-5" />
-            </div>
           </article>
 
           {/* Ledger rows */}
