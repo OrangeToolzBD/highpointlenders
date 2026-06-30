@@ -33,3 +33,6 @@ dist-ssr
 
 package-lock.json
 yarn.lock
+
+# Local-only env (production sets VITE_INDEXABLE in hosting)
+.env
