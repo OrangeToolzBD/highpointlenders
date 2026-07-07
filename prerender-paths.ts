@@ -4,7 +4,7 @@
 // renders one index.html per route. Use RELATIVE imports only - this module
 // is bundled by esbuild when Vite loads the config (the `@/` alias is unknown there).
 import { INDUSTRIES } from "./src/lib/industries-data";
-import { PILLARS } from "./src/lib/pillars-data";
+import { PILLARS, TOP_MONEY_PILLARS } from "./src/lib/pillars-data";
 import { SUBURBS } from "./src/lib/suburbs-data";
 
 export const prerenderPaths: string[] = [
@@ -18,4 +18,8 @@ export const prerenderPaths: string[] = [
   ...INDUSTRIES.map((i) => `/industry/${i.slug}`),
   ...PILLARS.map((p) => `/pillar/${p.slug}`),
   ...SUBURBS.map((s) => `/austin/${s.slug}`),
+  // Suburb x pillar SEO pages: 10 suburbs * 8 top money pillars = 80 pages.
+  ...SUBURBS.flatMap((s) =>
+    TOP_MONEY_PILLARS.map((p) => `/austin/${s.slug}/${p.slug}`),
+  ),
 ];
