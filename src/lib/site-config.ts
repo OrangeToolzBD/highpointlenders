@@ -9,7 +9,7 @@ const RAW_SITE_URL =
 export const SITE_URL: string = RAW_SITE_URL.replace(/\/+$/, "");
 
 export const INDEXABLE: boolean =
-  (import.meta.env?.VITE_INDEXABLE as string | undefined) === "true";
+  (import.meta.env?.VITE_INDEXABLE as string | undefined) !== "false";
 
 export const SITE_CONFIG = {
   url: SITE_URL,

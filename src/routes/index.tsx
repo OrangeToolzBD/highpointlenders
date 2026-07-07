@@ -803,7 +803,7 @@ function DiamondMark({ className = "" }: { className?: string }) {
 /* ---------------- Decorative SVG shapes - Texas star + Hill Country motifs ---------------- */
 
 /**
- * OceanWaves → Art Deco horizon arches.
+ * OceanWaves -> Art Deco horizon arches.
  * Three concentric arches across the width, evocative of MiMo grille work and
  * the curved façades on Lincoln Road and Ocean Drive.
  */
@@ -828,7 +828,7 @@ function OceanWaves({ className }: Readonly<{ className?: string }>) {
 }
 
 /**
- * SunShape → Texas Lone Star with a soft halo.
+ * SunShape -> Texas Lone Star with a soft halo.
  * A bold 5-point star centered in the frame, with a few thin radial sparks and
  * a faint ring to evoke a brand stamp or saddle conch.
  */
@@ -869,7 +869,7 @@ function SunShape({ className }: Readonly<{ className?: string }>) {
 }
 
 /**
- * PalmLeaf → Monstera leaf silhouette.
+ * PalmLeaf -> Monstera leaf silhouette.
  * (Currently unused in the layout, kept exported for future placement.)
  */
 function PalmLeaf({ className }: Readonly<{ className?: string }>) {
@@ -894,7 +894,7 @@ function PalmLeaf({ className }: Readonly<{ className?: string }>) {
 }
 
 /**
- * WavyLines → Art Deco grille (chevron stripes).
+ * WavyLines -> Art Deco grille (chevron stripes).
  * Replaces the horizontal wavy lines with stacked chevrons, the signature
  * Western-stitch chevron motif, evoking saddle leather and ranch fence lines.
  */
@@ -933,7 +933,7 @@ function WavyLines({
 }
 
 /**
- * DotGrid → Lone Star + denim weave grid.
+ * DotGrid -> Lone Star + denim weave grid.
  * Rhombus tessellation, the Art Deco terrazzo / breeze-block pattern.
  */
 function DotGrid({
@@ -969,7 +969,7 @@ function DotGrid({
 }
 
 /**
- * BlobShape → Stylized monstera/banana leaf.
+ * BlobShape -> Stylized monstera/banana leaf.
  * Stylized longhorn silhouette, slightly off-axis - a Texas botanical/livestock accent for hero corners
  * and background flourishes.
  */
@@ -1004,7 +1004,7 @@ function BlobShape({
 }
 
 /**
- * RingShape → Art Deco fan.
+ * RingShape -> Art Deco fan.
  * A half-fan composed of alternating radial wedges, the classic
  * "Texas sunset" fan motif over the Hill Country horizon.
  */
