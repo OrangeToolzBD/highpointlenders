@@ -3,18 +3,19 @@ import { INDUSTRIES } from "./industries-data";
 import { PILLARS, TOP_MONEY_PILLARS } from "./pillars-data";
 import { SUBURBS } from "./suburbs-data";
 
-// Date each URL was last generated. Bump when page content is regenerated.
-const LASTMOD = "2026-07-07";
-const CHANGEFREQ = "monthly";
+// Last-generated date for every URL; resolves to the build/deploy date.
+const LASTMOD = new Date().toISOString().slice(0, 10);
+
+const CITY = "austin";
 
 function collectUrls(): string[] {
-  const staticPaths = ["/", "/contact", "/apply-now", "/austin"];
+  const staticPaths = ["/", "/contact", "/apply-now", `/${CITY}`];
   const industryPaths = INDUSTRIES.map((i) => `/industry/${i.slug}`);
   const pillarPaths = PILLARS.map((p) => `/pillar/${p.slug}`);
-  const suburbPaths = SUBURBS.map((s) => `/austin/${s.slug}`);
-  // Suburb x pillar SEO pages: 10 suburbs * 8 top money pillars = 80 pages.
+  const suburbPaths = SUBURBS.map((s) => `/${CITY}/${s.slug}`);
+  // Suburb x top-money-pillar SEO pages.
   const suburbPillarPaths = SUBURBS.flatMap((s) =>
-    TOP_MONEY_PILLARS.map((p) => `/austin/${s.slug}/${p.slug}`),
+    TOP_MONEY_PILLARS.map((p) => `/${CITY}/${s.slug}/${p.slug}`),
   );
 
   return [
@@ -40,7 +41,7 @@ export function buildSitemapXml(): string {
   const body = urls
     .map(
       (u) =>
-        `  <url><loc>${escapeXml(u)}</loc><lastmod>${LASTMOD}</lastmod><changefreq>${CHANGEFREQ}</changefreq></url>`,
+        `  <url><loc>${escapeXml(u)}</loc><lastmod>${LASTMOD}</lastmod></url>`,
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -51,13 +52,13 @@ ${body}
 }
 
 export function sitemapXmlResponse(): Response {
-  if (!INDEXABLE) {
-    return new Response("", {
-      status: 404,
-      headers: { "content-type": "text/plain; charset=utf-8" },
-    });
-  }
-  return new Response(buildSitemapXml(), {
+  // Always return 200 so the TanStack Start prerender step never fails. When
+  // the site is not indexable, emit an empty (but valid) urlset so no URLs
+  // leak into the build - robots.txt disallows crawling under the same flag.
+  const body = INDEXABLE
+    ? buildSitemapXml()
+    : `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n`;
+  return new Response(body, {
     status: 200,
     headers: {
       "content-type": "application/xml; charset=utf-8",
